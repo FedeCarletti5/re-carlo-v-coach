@@ -5,6 +5,7 @@
   const whoopOverview=document.getElementById('today-whoop-overview');
   const toneClass={good:'proceed',warn:'reduce',danger:'replace',proceed:'proceed',reduce:'reduce',replace:'replace',stop:'stop',neutral:''};
   let adaptiveCollapsed=false;
+  let prescriptionOpen=false;
 
   function element(tag,className,text){const node=document.createElement(tag);if(className)node.className=className;if(text!==undefined)node.textContent=text;return node;}
   function todayTargetChip(target){const chip=element('span','today-target');const color=window.rcTrainingZonesModel?.zoneColor?.(target.zone,target.zoneType||'hr');if(color){chip.classList.add('has-zone');chip.dataset.zone=target.zone;chip.style.setProperty('--zone-color',color);}chip.append(element('small','',target.label),element('strong','',target.value));return chip;}
@@ -54,7 +55,8 @@
     const head=element('div','panel-head');const copy=element('div');copy.append(element('span','tag rest','OGGI'),element('h2','',model.nextSession?'Rest day':'Piano libero'));head.append(copy);
     const empty=element('div','today-empty-state');empty.append(element('strong','',model.nextSession?`Prossima · ${model.nextSession.title}`:'Nessuna seduta programmata'),element('span','',model.nextSession?`${formatDate(model.nextSession.date)} · ${window.rcSessions?.describe?.(model.nextSession.id)||`${model.nextSession.durationMin} min`}`:'Imposta la disponibilità per creare la settimana.'));
     const action=element('button','primary',model.nextSession?'Apri il piano':'Imposta la settimana');action.type='button';action.addEventListener('click',()=>{window.rcNavigation?.show('plan');if(!model.nextSession)setTimeout(()=>document.getElementById('open-weekly-checkin')?.click(),0);});
-    sessionPanel.append(head,empty,action);
+    const manual=element('button','ghost','Incolla un allenamento');manual.type='button';manual.addEventListener('click',()=>window.rcSessions.openEditor());
+    const actions=element('div','today-session-actions');actions.append(action,manual);sessionPanel.append(head,empty,actions);
   }
   function secondaryRow(item){
     const row=element('div','today-secondary-row');const pending=item.outcome?.completionSource==='device-match',status=pending?'Svolta · post-sessione da completare':item.outcome?({completed:'Svolta',partial:'Parziale',skipped:'Non svolta'}[item.outcome.status]||'Registrata'):'Programmata';
@@ -79,7 +81,10 @@
     if(session.outcome){primaryAction.textContent=model.primaryDevicePending?'Completa post-sessione':'Apri registrazione';primaryAction.addEventListener('click',()=>window.rcSessions.openOutcome(session.id));}
     else {primaryAction.id='open-pre-checkin';primaryAction.textContent=model.checkin?'Aggiorna check-in pre sessione':'Avvia check-in pre sessione';primaryAction.addEventListener('click',()=>window.rcCheckins.openPre(session.id));}
     const planAction=element('button','ghost','Vedi nel piano');planAction.type='button';planAction.addEventListener('click',()=>window.rcNavigation?.show('plan'));actions.append(primaryAction,planAction);
-    sessionPanel.append(head,summary,prescription,note,actions);
+    const structure=element('details','today-structure');structure.open=prescriptionOpen;
+    const disclosure=element('summary');const disclosureCopy=element('span');disclosureCopy.append(element('strong','','Struttura della seduta'),element('small','',`${model.prescription.length} blocchi · fasi e target`));disclosure.append(disclosureCopy,element('span','today-structure-chevron','⌄'));
+    structure.addEventListener('toggle',()=>{prescriptionOpen=structure.open;});structure.append(disclosure,prescription);
+    sessionPanel.append(head,summary,note,actions,structure);
     appendSecondary(model);
   }
   function renderSession(model){sessionPanel.replaceChildren();if(model.primarySkipped)renderSkippedPrimary(model);else if(model.primary)renderPrimary(model);else renderNoSession(model);}

@@ -160,3 +160,78 @@ html[data-theme="light"] ::selection{background:rgba(8,115,237,.2);color:#10243d
   .modal-actions{grid-template-columns:1fr}
   .session-actions .danger,.goal-modal-actions .danger,.outcome-actions .danger{grid-column:auto}
 }
+
+/* Daily workspace: quieter surfaces, readable hierarchy and action-first cards. */
+:root{--readable-muted:#a0b0c4;--surface-soft:#101d2d}
+html[data-theme="light"]{--readable-muted:#52677f;--surface-soft:#f4f7fb}
+body{background:var(--bg)}
+main>header{padding-bottom:24px;margin-bottom:24px}
+main>header h1{font-size:clamp(25px,2.5vw,36px);letter-spacing:-.04em}
+main>header small{color:var(--readable-muted);font-size:10px}
+.panel{box-shadow:0 6px 22px rgba(0,0,0,.06)}
+.panel-head h2{font-size:18px}
+.panel .muted,.today-week-note,.today-week-scale{color:var(--readable-muted)}
+#today-session-panel>.panel-head h2{font-size:clamp(21px,2vw,27px);line-height:1.25;margin-top:12px;letter-spacing:-.035em}
+#today-session-panel{border-color:color-mix(in srgb,var(--blue) 35%,var(--line))}
+#today-session-panel>.muted{font-size:13px;margin-top:0;margin-bottom:18px;line-height:1.65}
+#today-session-panel>.today-session-actions{margin:18px 0 0;gap:10px}
+#today-session-panel>.today-session-actions .primary{min-height:46px;font-size:13px;padding:12px 18px}
+#today-session-panel .coach-note{padding:14px 16px;box-shadow:none}
+#today-session-panel .coach-note p{color:var(--readable-muted);font-size:12px;line-height:1.65}
+.today-structure{margin-top:24px;border-top:1px solid var(--line)}
+.today-structure>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0 4px;cursor:pointer;list-style:none}
+.today-structure>summary::-webkit-details-marker{display:none}
+.today-structure summary strong,.today-structure summary small{display:block}
+.today-structure summary strong{font-size:13px;color:var(--text)}
+.today-structure summary small{font-size:11px;margin-top:5px;color:var(--readable-muted);letter-spacing:0}
+.today-structure-chevron{display:grid;place-items:center;width:32px;height:32px;border:1px solid var(--line);border-radius:9px;color:var(--readable-muted)}
+.today-structure[open] .today-structure-chevron{transform:rotate(180deg)}
+.today-structure .today-prescription{margin-top:18px}
+.today-structure .today-prescription-label{font-size:10px}
+.today-structure .today-prescription-metrics{grid-template-columns:minmax(80px,.5fr) minmax(0,1fr);align-items:stretch}
+.today-structure .today-prescription-duration{background:transparent!important;border:0!important;padding:4px 0}
+.today-structure .today-target{min-width:0;background:transparent!important;border:0!important;box-shadow:none!important;padding:4px 8px}
+.today-structure .today-target strong{font-size:12px}
+.today-structure .today-prescription-duration small,.today-structure .today-target small{font-size:8px!important;color:var(--readable-muted)!important}
+.today-structure .today-prescription-duration strong{font-size:20px}
+.today-structure .today-repeat-step{background:transparent!important;border:0!important;border-top:1px solid var(--line)!important;border-radius:0;padding:10px 0}
+.today-structure .today-repeat-targets{gap:4px}
+#today-metrics article{padding:18px 20px;min-height:122px;background:var(--panel);box-shadow:none}
+#today-metrics article>span{font-size:10px;color:var(--readable-muted);letter-spacing:.09em}
+#today-metrics article>small{font-size:11px;line-height:1.6;color:var(--readable-muted);letter-spacing:0}
+#today-metrics article>strong{font-size:29px;letter-spacing:-.035em}
+.day .day-content h3{font-size:16px;line-height:1.45}
+.day .day-content p{font-size:12px;line-height:1.6}
+.schedule-empty{padding:36px 22px;border:1px dashed var(--line);background:var(--panel2);border-radius:14px;line-height:1.6}
+.schedule-empty-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+#session-form .session-common{padding:0 0 22px;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+#session-form .session-fields{margin-top:24px}
+#session-form .session-fields h3{font-size:11px;color:var(--readable-muted)}
+#session-form .run-segment label,#session-form .workout-row label{font-size:11px;line-height:1.5}
+#session-form .pace-stepper input{min-width:0;width:100%;font-size:12px}
+#session-form .pace-stepper button{padding:5px;min-width:30px}
+:where(summary):focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:6px}
+@media(min-width:901px){.sidebar nav{gap:5px}.nav{min-height:48px}.nav-label{font-size:13px}.sidebar{padding-top:30px}main{max-width:1640px;width:100%;margin:0 auto}}
+@media(max-width:620px){
+  main>header{padding-bottom:18px;margin-bottom:18px}
+  #today-metrics{gap:9px}#today-metrics article{padding:14px 13px;min-height:110px}
+  #today-metrics article>strong{font-size:24px}#today-metrics article>span{font-size:9px}
+  #today-session-panel>.panel-head h2{font-size:22px}
+  #today-session-panel>.today-session-actions{display:grid;grid-template-columns:1fr}
+  .today-structure .today-prescription-metrics{grid-template-columns:80px minmax(0,1fr);gap:6px}
+  .today-structure .today-prescription-targets{grid-template-columns:1fr}
+  #session-form input:not([type="hidden"]),#session-form select,#session-form textarea{font-size:16px}
+  #session-form .pace-stepper input{font-size:16px}
+  #session-form .session-common{gap:14px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* The hidden attribute remains authoritative even for grid/flex panels. */
+[hidden]{display:none!important}
+@media(max-width:620px){
+  #today-metrics,#today-metrics.without-sleep{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #today-metrics.without-sleep article:first-child{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);column-gap:14px;align-items:center;min-height:88px}
+  #today-metrics.without-sleep article:first-child>span{grid-column:1/-1}
+  #today-metrics.without-sleep article:first-child>strong{font-size:22px;margin:6px 0;white-space:normal}
+  #today-metrics.without-sleep article:first-child>small{margin:0}
+}

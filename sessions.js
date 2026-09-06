@@ -44,6 +44,8 @@
   const runTargetInput = document.getElementById('run-target');
   const titleInput = document.getElementById('session-title');
   let titleMode = 'auto';
+  let workoutTextSource = '';
+  let prescriptionLocked = false;
   let currentEvidenceIndex=new Map();
   let activeOutcomeEvidence=null;
   let activeActualEnduranceBlocks=[];
@@ -305,7 +307,7 @@
       const edit = document.createElement('button'); edit.type = 'button'; edit.className = 'edit-session'; edit.textContent = 'Modifica'; edit.addEventListener('click', () => open(session));
       actions.append(priority);if(!selectionMode)actions.append(record,edit); article.append(dateBox,content,actions); schedule.append(article);
     });
-    if (!ordered.length) { const empty = document.createElement('div'); empty.className = 'schedule-empty'; const period=planView==='calendar'?calendarCursor.toLocaleDateString('it-IT',{month:'long',year:'numeric'}):planViewModel.weekLabel(listWeekStart).replace(/^Settimana /,'la settimana ');const message=document.createElement('span');message.textContent=`Nessuna seduta programmata per ${period}.`;empty.append(message);const actions=document.createElement('div');actions.className='schedule-empty-actions';const coachPlan=document.createElement('button');coachPlan.type='button';coachPlan.className='primary small';coachPlan.textContent='Prepara con il Coach';coachPlan.addEventListener('click',()=>document.getElementById('open-weekly-checkin')?.click());actions.append(coachPlan);empty.append(actions);schedule.append(empty); }
+    if (!ordered.length) { const empty = document.createElement('div'); empty.className = 'schedule-empty'; const period=planView==='calendar'?calendarCursor.toLocaleDateString('it-IT',{month:'long',year:'numeric'}):planViewModel.weekLabel(listWeekStart).replace(/^Settimana /,'la settimana ');const message=document.createElement('span');message.textContent=`Nessuna seduta programmata per ${period}.`;empty.append(message);const actions=document.createElement('div');actions.className='schedule-empty-actions';const coachPlan=document.createElement('button');coachPlan.type='button';coachPlan.className='primary small';coachPlan.textContent='Prepara con il Coach';coachPlan.addEventListener('click',()=>document.getElementById('open-weekly-checkin')?.click());actions.append(coachPlan);const manual=document.createElement('button');manual.type='button';manual.className='ghost';manual.textContent='Incolla un allenamento';manual.addEventListener('click',()=>open());actions.append(manual);empty.append(actions);schedule.append(empty); }
     renderPeriodSummary(periodSessions);
     renderSelectionBar(periodSessions);
     applyPlanView();
@@ -401,7 +403,7 @@
     form.elements.namedItem('rideBlocks').value=JSON.stringify(blocks);
   }
   function regenerateRideBuilder(){
-    if(categoryInput.value!=='cycling')return;
+    if(categoryInput.value!=='cycling'||prescriptionLocked)return;
     const draft={category:'cycling',title:titleInput.value,durationMin:Number(form.elements.durationMin.value)||45,details:{rideType:form.elements.rideType.value,powerSource:form.elements.powerSource.value,ftpMin:Number(form.elements.ftpMin.value),ftpMax:Number(form.elements.ftpMax.value),cadence:Number(form.elements.cadence.value),rideBlocks:[]}};
     const blocks=prescriptionModel?.ridePrescription?.(draft,prescriptionContext())||[];renderRideBuilder(blocks);
     const main=blocks.flatMap(item=>item.type==='repeat'?item.steps||[]:[item]).find(item=>item.phase==='work');
@@ -420,18 +422,22 @@
     const values={phase:'work',unit:'min',amount:5,targetType:'free',target:'',...segment},baseIntensity=prescriptionModel?.inferIntensity?.(values)||'easy'; const row=document.createElement('div'); row.className=`run-segment phase-${values.phase} intensity-${baseIntensity}`; row.dataset.runSegment='';row.dataset.intensity=baseIntensity;row.dataset.baseIntensity=baseIntensity;row.dataset.paceHint=values.paceHint||'';if(values.targetSource)row.dataset.targetSource=JSON.stringify(values.targetSource);
     row.append(runSelect('Fase','phase',[['warmup','Warm-up'],['work','Lavoro'],['recovery','Recupero'],['cooldown','Cool-down'],['free','Corsa libera']],values.phase,()=>{styleRunSegment(row);onChange();}));
     row.append(runSelect('Unità','unit',[['min','Minuti'],['km','Chilometri'],['m','Metri']],values.unit,onChange));
-    const amountWrap=document.createElement('label'); amountWrap.textContent='Quantità'; const amount=document.createElement('input'); amount.type='number'; amount.min='0.1'; amount.step='0.1'; amount.dataset.runField='amount'; amount.value=values.amount; amount.addEventListener('input',onChange); amountWrap.append(amount); row.append(amountWrap);
+    const amountWrap=document.createElement('label'); amountWrap.textContent='Quantità'; const amount=document.createElement('input'); amount.type='number'; amount.min='0.01'; amount.max='2000'; amount.step='any'; amount.dataset.runField='amount'; amount.value=values.amount; amount.addEventListener('input',onChange); amountWrap.append(amount); row.append(amountWrap);
     const targetWrap=document.createElement('div'); targetWrap.className='run-target-value';
     const targetSelect=runSelect('Obiettivo','targetType',[['free','Libero'],['pace','Passo'],['hr','Frequenza cardiaca'],['rpe','RPE']],values.targetType,()=>{renderTarget();styleRunSegment(row);onChange();}); row.append(targetSelect,targetWrap);
     const actions=document.createElement('div'); actions.className='row-actions'; const remove=document.createElement('button'); remove.type='button'; remove.className='row-action remove'; remove.textContent='×'; remove.title='Rimuovi fase'; remove.addEventListener('click',onRemove); actions.append(remove); row.append(actions);
     if(values.paceHint){const hint=enduranceZoneChip('PASSO DI RIFERIMENTO',values.paceHint,enduranceZoneMeta(values),'run-derived-hint');const source=document.createElement('em');source.textContent='Derivato dal profilo';hint.append(source);row.append(hint);}
     function paceSeconds(value){const match=String(value||'').match(/(\d+):(\d+)/);return match?Number(match[1])*60+Number(match[2]):300;}
     function paceText(seconds){const safe=Math.max(120,Math.min(900,seconds));return `${Math.floor(safe/60)}:${String(safe%60).padStart(2,'0')}/km`;}
+    function shiftPace(value,delta){
+      const range=String(value||'').match(/^(\d+:[0-5]\d)\s*[–-]\s*(\d+:[0-5]\d)(?:\/km)?$/);
+      return range?`${paceText(paceSeconds(range[1])+delta).replace('/km','')}–${paceText(paceSeconds(range[2])+delta)}`:paceText(paceSeconds(value)+delta);
+    }
     function renderTarget(){const type=row.querySelector('[data-run-field="targetType"]').value; const previous=row.querySelector('[data-run-field="target"]')?.value||values.target; targetWrap.replaceChildren(document.createTextNode('Target'));
-      if(type==='pace'){const stepper=document.createElement('span');stepper.className='pace-stepper';const minus=document.createElement('button');minus.type='button';minus.textContent='−5s';const input=document.createElement('input');input.type='text';input.readOnly=true;input.dataset.runField='target';input.value=paceText(paceSeconds(previous));const plus=document.createElement('button');plus.type='button';plus.textContent='+5s';minus.addEventListener('click',()=>{input.value=paceText(paceSeconds(input.value)-5);styleRunSegment(row);onChange();});plus.addEventListener('click',()=>{input.value=paceText(paceSeconds(input.value)+5);styleRunSegment(row);onChange();});stepper.append(minus,input,plus);targetWrap.append(stepper);}
-      else if(type==='hr'){const select=document.createElement('select');select.dataset.runField='target';athleteHrTargets().forEach(zone=>{const option=document.createElement('option');option.value=zone.value;option.textContent=zone.label;select.append(option);});const matched=[...select.options].find(option=>previous.startsWith(option.value.slice(0,2)));if(matched)select.value=matched.value;select.addEventListener('change',()=>{styleRunSegment(row);onChange();});targetWrap.append(select);}
-      else if(type==='rpe'){const select=document.createElement('select');select.dataset.runField='target';for(let value=1;value<=10;value++){const option=document.createElement('option');option.value=`RPE ${value}`;option.textContent=`RPE ${value}`;select.append(option);}if([...select.options].some(option=>option.value===previous))select.value=previous;else select.value='RPE 6';select.addEventListener('change',()=>{styleRunSegment(row);onChange();});targetWrap.append(select);}
-      else {const input=document.createElement('input');input.type='text';input.disabled=true;input.placeholder='Nessun target';input.dataset.runField='target';input.value='';targetWrap.append(input);} targetWrap.classList.toggle('is-free',type==='free');}
+      if(type==='pace'){const stepper=document.createElement('span');stepper.className='pace-stepper';const minus=document.createElement('button');minus.type='button';minus.textContent='−5s';const input=document.createElement('input');input.type='text';input.setAttribute('aria-label','Passo del blocco');input.dataset.runField='target';input.value=previous||'';input.placeholder='4:30/km o 4:30–4:45/km';input.addEventListener('input',()=>{styleRunSegment(row);onChange();});const plus=document.createElement('button');plus.type='button';plus.textContent='+5s';minus.addEventListener('click',()=>{input.value=shiftPace(input.value,-5);styleRunSegment(row);onChange();});plus.addEventListener('click',()=>{input.value=shiftPace(input.value,5);styleRunSegment(row);onChange();});stepper.append(minus,input,plus);targetWrap.append(stepper);}
+      else if(type==='hr'){const select=document.createElement('select');select.dataset.runField='target';athleteHrTargets().forEach(zone=>{const option=document.createElement('option');option.value=zone.value;option.textContent=zone.label;select.append(option);});if(![...select.options].some(option=>option.value===previous)){const option=document.createElement('option');option.value=previous;option.textContent=previous||'Non indicato';select.prepend(option);}select.value=previous;select.addEventListener('change',()=>{styleRunSegment(row);onChange();});targetWrap.append(select);}
+      else if(type==='rpe'){const select=document.createElement('select');select.dataset.runField='target';for(let value=1;value<=10;value++){const option=document.createElement('option');option.value=`RPE ${value}`;option.textContent=`RPE ${value}`;select.append(option);}if(![...select.options].some(option=>option.value===previous)){const option=document.createElement('option');option.value=previous;option.textContent=previous||'Non indicato';select.prepend(option);}select.value=previous;select.addEventListener('change',()=>{styleRunSegment(row);onChange();});targetWrap.append(select);}
+      else {const input=document.createElement('input');input.type='text';input.placeholder='Libero o indicazione testuale';input.dataset.runField='target';input.value=previous;input.addEventListener('input',onChange);targetWrap.append(input);} targetWrap.classList.toggle('is-free',type==='free');}
     renderTarget();styleRunSegment(row); return row;
   }
   function readRunSegment(row) {
@@ -446,7 +452,7 @@
     const list=document.getElementById('run-workout-rows'); list.replaceChildren();
     items.forEach((item,index)=>{
       if(item.type!=='repeat') { const holder=document.createElement('div'); holder.dataset.runItem='segment'; holder.append(runSegment(item,()=>syncRunBuilder(),()=>{const current=syncRunBuilder();current.splice(index,1);renderRunBuilder(current);})); list.append(holder); return; }
-      const repeat=document.createElement('div'); repeat.className=`run-repeat intensity-${item.intensity||prescriptionModel?.inferIntensity?.(item.steps?.[0])||'tempo'}`; repeat.dataset.runItem='repeat';repeat.dataset.intensity=item.intensity||prescriptionModel?.inferIntensity?.(item.steps?.[0])||'tempo'; const head=document.createElement('div'); head.className='run-repeat-head'; const title=document.createElement('div'); title.className='run-repeat-title'; const strong=document.createElement('strong'); strong.textContent='Sequenza ripetuta'; const countWrap=document.createElement('label'); countWrap.className='repeat-count'; countWrap.textContent='Ripetizioni'; const count=document.createElement('input'); count.type='number'; count.min='2'; count.max='50'; count.value=item.repeats||2; count.dataset.repeatCount=''; count.addEventListener('input',()=>syncRunBuilder()); countWrap.append(count); title.append(strong,countWrap); const remove=document.createElement('button'); remove.type='button'; remove.className='row-action remove'; remove.textContent='×'; remove.title='Rimuovi sequenza'; remove.addEventListener('click',()=>{const current=syncRunBuilder();current.splice(index,1);renderRunBuilder(current);}); head.append(title,remove); repeat.append(head);
+      const repeat=document.createElement('div'); repeat.className=`run-repeat intensity-${item.intensity||prescriptionModel?.inferIntensity?.(item.steps?.[0])||'tempo'}`; repeat.dataset.runItem='repeat';repeat.dataset.intensity=item.intensity||prescriptionModel?.inferIntensity?.(item.steps?.[0])||'tempo'; const head=document.createElement('div'); head.className='run-repeat-head'; const title=document.createElement('div'); title.className='run-repeat-title'; const strong=document.createElement('strong'); strong.textContent='Sequenza ripetuta'; const countWrap=document.createElement('label'); countWrap.className='repeat-count'; countWrap.textContent='Ripetizioni'; const count=document.createElement('input'); count.type='number'; count.min='1'; count.max='100'; count.value=item.repeats||2; count.dataset.repeatCount=''; count.addEventListener('input',()=>syncRunBuilder()); countWrap.append(count); title.append(strong,countWrap); const remove=document.createElement('button'); remove.type='button'; remove.className='row-action remove'; remove.textContent='×'; remove.title='Rimuovi sequenza'; remove.addEventListener('click',()=>{const current=syncRunBuilder();current.splice(index,1);renderRunBuilder(current);}); head.append(title,remove); repeat.append(head);
       const steps=document.createElement('div'); steps.className='repeat-steps'; (item.steps||[]).forEach((step,stepIndex)=>steps.append(runSegment(step,()=>syncRunBuilder(),()=>{const current=syncRunBuilder();current[index].steps.splice(stepIndex,1);renderRunBuilder(current);}))); repeat.append(steps);
       const add=document.createElement('button'); add.type='button'; add.className='ghost repeat-add'; add.textContent='+ Aggiungi fase alla sequenza'; add.addEventListener('click',()=>{const current=syncRunBuilder();current[index].steps.push({type:'segment',phase:current[index].steps.length?'recovery':'work',unit:'min',amount:current[index].steps.length?2:3,targetType:'free',target:''});renderRunBuilder(current);}); repeat.append(add); list.append(repeat);
     });
@@ -454,6 +460,9 @@
   }
   function open(session = null) {
     clearSessionSaveFeedback();form.reset(); form.elements.id.value = ''; form.elements.date.value = localDate();
+    workoutTextSource=session?.details?.workoutTextSource||'';
+    prescriptionLocked=session?.details?.prescriptionLocked===true;
+    textImporter.reset(session);
     form.elements.startTime.value=calendarFeedModel?.DEFAULT_START_TIME||'09:00';
     document.getElementById('session-form-title').textContent = session ? 'Modifica seduta' : 'Nuova seduta';
     document.getElementById('delete-session').hidden = !session;
@@ -462,14 +471,14 @@
     outcomeButton.textContent = reconciliationModel?.needsPostSessionCompletion?.(session?.outcome) ? 'Completa post-sessione' : session?.outcome ? 'Dettagli' : currentEvidenceIndex.has(session?.id) ? 'Completa check-out' : 'Registra';
     if (session) {
       const values = { ...session, ...(session.details || {}) };
-      Object.entries(values).forEach(([name,value]) => { const field = form.elements.namedItem(name); if (field && value !== undefined && value !== null) field.value = value; });
+      setDraftValues(values);
       form.elements.notes.value=prescriptionModel?.personalNotes?.(session)||'';
       form.elements.startTime.value=calendarFeedModel?.startTime?.(session.startTime)||'09:00';
       titleMode = session.titleMode || 'custom';
     } else {
       titleMode = 'auto';
     }
-    renderPrescriptionSource(session);hydrateBuilders(session); toggleFields(); updateSuggestedTitle(!session);updateSessionEndTime(); modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    renderPrescriptionSource(session);hydrateBuilders(session); toggleFields(); updateSuggestedTitle(!session);updateSessionEndTime(); modal.classList.add('open'); modal.setAttribute('aria-hidden','false');form.scrollTop=0;
   }
 
   function renderPrescriptionSource(session){
@@ -479,7 +488,8 @@
   }
 
   function updateSessionEndTime(){
-    const windowValue=calendarFeedModel?.eventWindow?.({startTime:form.elements.startTime.value,durationMin:form.elements.durationMin.value});
+    const duration=Number(form.elements.durationMin.value);
+    const windowValue=duration>0?calendarFeedModel?.eventWindow?.({startTime:form.elements.startTime.value,durationMin:duration}):null;
     document.getElementById('session-end-time').textContent=windowValue?`Fine prevista ${windowValue.endTime}${windowValue.endDayOffset?' · giorno successivo':''}`:'Fine calcolata automaticamente';
   }
   function athleteWeightKg(){try{return Number(JSON.parse(localStorage.getItem('rc-athlete-profile-v1')).weightKg)||null;}catch(_){return null;}}
@@ -678,12 +688,13 @@
     const pendingDevice=reconciliationModel?.needsPostSessionCompletion?.(outcome);renderObservedEvidence(evidence,Boolean(outcome)&&!pendingDevice);document.getElementById('outcome-delete').hidden=!outcome;toggleOutcomeFields();setOutcomeMode(session,Boolean(options.edit)||pendingDevice);outcomeModal.classList.add('open');outcomeModal.setAttribute('aria-hidden','false');outcomeForm.scrollTop=0;
   }
   function detailsFromForm(data, category) {
-    if (category === 'running') return {runType:data.get('runType'),distanceKm:Number(data.get('distanceKm')) || null,runTarget:data.get('runTarget'),hrZone:data.get('hrZone'),paceMin:Number(data.get('paceMin')),paceSec:Number(data.get('paceSec')),runRpe:Number(data.get('runRpe')),runBlocks:JSON.parse(data.get('runBlocks')||'[]')};
-    if (category === 'swimming') return {swimType:data.get('swimType'),swimDistanceM:Number(data.get('swimDistanceM'))||null,swimRpe:Number(data.get('swimRpe')),swimStructuredBlocks:builderRows('swimming')};
-    if (category === 'cycling') return {rideType:data.get('rideType'),powerSource:data.get('powerSource'),ftpMin:Number(data.get('ftpMin')),ftpMax:Number(data.get('ftpMax')),cadence:Number(data.get('cadence')),rideBlocks:JSON.parse(data.get('rideBlocks')||'[]')};
-    if (category === 'strength') return {strengthFocus:data.get('strengthFocus'),targetRir:Number(data.get('targetRir')),strengthBlocks:builderRows('strength'),strengthAccessories:data.get('strengthAccessories').trim()};
-    if (category === 'hyrox') return {hyroxFormat:data.get('hyroxFormat'),hyroxRpe:Number(data.get('hyroxRpe')),hyroxStructuredBlocks:builderRows('hyrox')};
-    if (category === 'metcon') return {metconType:data.get('metconType'),metconRpe:Number(data.get('metconRpe')),metconStructuredBlocks:builderRows('metcon')};
+    const optionalNumber=name=>data.get(name)===''?'':Number(data.get(name));
+    if (category === 'running') return {runType:data.get('runType'),distanceKm:Number(data.get('distanceKm')) || null,runTarget:data.get('runTarget'),hrZone:data.get('hrZone'),paceMin:Number(data.get('paceMin')),paceSec:Number(data.get('paceSec')),runRpe:optionalNumber('runRpe'),runBlocks:JSON.parse(data.get('runBlocks')||'[]')};
+    if (category === 'swimming') return {swimType:data.get('swimType'),swimDistanceM:Number(data.get('swimDistanceM'))||null,swimRpe:optionalNumber('swimRpe'),swimStructuredBlocks:builderRows('swimming')};
+    if (category === 'cycling') return {rideType:data.get('rideType'),powerSource:data.get('powerSource'),ftpMin:optionalNumber('ftpMin'),ftpMax:optionalNumber('ftpMax'),cadence:optionalNumber('cadence'),rideBlocks:JSON.parse(data.get('rideBlocks')||'[]')};
+    if (category === 'strength') return {strengthFocus:data.get('strengthFocus'),targetRir:optionalNumber('targetRir'),strengthBlocks:builderRows('strength'),strengthAccessories:data.get('strengthAccessories').trim()};
+    if (category === 'hyrox') return {hyroxFormat:data.get('hyroxFormat'),hyroxRpe:optionalNumber('hyroxRpe'),hyroxStructuredBlocks:builderRows('hyrox')};
+    if (category === 'metcon') return {metconType:data.get('metconType'),metconRpe:optionalNumber('metconRpe'),metconStructuredBlocks:builderRows('metcon')};
     if (category === 'test') return {testType:data.get('testType'),testRpe:Number(data.get('testRpe')),testProtocol:data.get('testProtocol').trim()};
     return {recoveryType:data.get('recoveryType')};
   }
@@ -760,8 +771,10 @@
         ...(existing?.adaptiveAdjustment?{adaptiveAdjustment:existing.adaptiveAdjustment}:{}),...(existing?.coachApplication?{coachApplication:existing.coachApplication}:{}),...(existing?.goalSubstitution?{goalSubstitution:existing.goalSubstitution}:{}),
         ...(existing?.goalId?{goalId:existing.goalId}:{}),...(existing?.goalGenerated?{goalGenerated:true}:{}),...(existing?.goalSyncedAt?{goalSyncedAt:existing.goalSyncedAt}:{})
       };
+      if(workoutTextSource)session.details.workoutTextSource=workoutTextSource;
+      if(prescriptionLocked)session.details.prescriptionLocked=true;
       session=prescriptionModel?.enrichSession?.(session,prescriptionContext())||session;
-      if (existing) sessions = sessions.map(item => item.id === id ? session : item); else sessions.push(session);
+      sessions=existing?sessions.map(item=>item.id===id?session:item):[...sessions,session];
       save();{const date=new Date(`${session.date}T12:00:00`);calendarCursor=new Date(date.getFullYear(),date.getMonth(),1);listWeekStart=planViewModel.mondayFor(session.date);}
       render();close();toast();document.dispatchEvent(new CustomEvent('rc:sessions-updated',{detail:{reason:'session-saved',sessionId:session.id}}));
     }catch(error){sessions=previousSessions;console.error('session-save',error);showSessionSaveFeedback('Non sono riuscito a salvare la seduta. Riprova: i dati inseriti sono ancora qui.');}
@@ -792,6 +805,33 @@
     if(sessionChanged||substitution?.changed){save();render();document.dispatchEvent(new CustomEvent('rc:sessions-updated',{detail:{reason:substitution?.deletedIds?.length?'goal-long-replaced':'goal-session-synced',sessionId:next.id,goalId:goal.id,removedIds:substitution?.deletedIds||[]}}));}return next.id;
   }
   function removeGoalSession(goalId){const generated=session=>goalsModel?.isGoalGeneratedSession?.(session)??Boolean(session?.goalGenerated);const targets=sessions.filter(item=>generated(item)&&(item.goalId===goalId||item.id===`goal-session:${goalId}`)),targetIds=new Set(targets.map(item=>item.id));sessions=sessions.flatMap(item=>{if(!targetIds.has(item.id))return[item];if(!item.outcome)return[];const{goalId:ignoredGoal,goalGenerated:ignoredGenerated,goalSyncedAt:ignoredSync,...detached}=item;return[detached];});const restored=goalsModel?.restoreGoalSubstitution?.(sessions,goalId);if(restored?.changed)sessions=restored.sessions;if(!targets.length&&!restored?.changed)return false;selectedIds=selectionModel.prune(selectedIds,sessions);save();render();document.dispatchEvent(new CustomEvent('rc:sessions-updated',{detail:{reason:'goal-session-removed',goalId,restoredIds:restored?.restoredIds||[]}}));return true;}
+  function setDraftValues(values){
+    Object.entries(values).forEach(([name,value])=>{
+      const field=form.elements.namedItem(name);if(!field||Array.isArray(value))return;
+      const text=value===null||value===undefined?'':String(value);
+      if(field.tagName==='SELECT'&&![...field.options].some(option=>option.value===text)){
+        const option=document.createElement('option');option.value=text;option.textContent=text||'Non indicato';field.append(option);
+      }
+      field.value=text;
+    });
+  }
+  function captureDraft(){
+    return{values:Object.fromEntries(new FormData(form)),titleMode,workoutTextSource,prescriptionLocked};
+  }
+  function restoreDraft(snapshot){
+    setDraftValues(snapshot.values);titleMode=snapshot.titleMode;workoutTextSource=snapshot.workoutTextSource;prescriptionLocked=snapshot.prescriptionLocked;
+    const details={};['runBlocks','rideBlocks',...Object.values(builderInputNames)].forEach(name=>{details[name]=JSON.parse(snapshot.values[name]||'[]');});
+    hydrateBuilders({details});toggleFields();updateSuggestedTitle();updateSessionEndTime();
+  }
+  const textImporter=window.rcWorkoutTextUI.create({
+    onApply(result){
+      const previous=captureDraft();
+      const fields={category:result.category,title:result.title,durationMin:result.durationMin??'',distanceKm:'',swimDistanceM:'',...result.details};
+      setDraftValues(fields);titleMode='custom';workoutTextSource=result.source;prescriptionLocked=true;
+      hydrateBuilders({details:result.details});toggleFields();updateSuggestedTitle();updateSessionEndTime();clearSessionSaveFeedback();return previous;
+    },
+    onUndo:restoreDraft
+  });
   window.rcSessions={
     getAll:()=>structuredClone(sessions),
     replaceWeek,replaceBaselinePlan,restoreWeekAdjustments,

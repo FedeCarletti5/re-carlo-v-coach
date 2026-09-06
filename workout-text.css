@@ -1,0 +1,37 @@
+/* Text-to-session composer: uses the same surfaces in both themes. */
+.workout-text-import{margin:4px 0 26px;border:1px solid color-mix(in srgb,var(--blue) 45%,var(--line));border-radius:16px;background:color-mix(in srgb,var(--blue) 5%,var(--panel));overflow:hidden}
+.workout-text-import>summary{display:flex;align-items:center;gap:12px;padding:18px;cursor:pointer;list-style:none;color:var(--text)}
+.workout-text-import>summary::-webkit-details-marker{display:none}
+.workout-text-symbol{display:grid;place-items:center;flex:0 0 38px;height:38px;background:color-mix(in srgb,var(--blue) 15%,var(--panel));border:1px solid color-mix(in srgb,var(--blue) 32%,var(--line));border-radius:11px;color:var(--blue);font-size:25px}
+.workout-text-import summary strong,.workout-text-import summary small{display:block}
+.workout-text-import summary strong{font-size:15px;font-weight:700;letter-spacing:-.02em}
+.workout-text-import summary small{margin-top:4px;font-size:12px;color:var(--muted);line-height:1.4}
+.workout-text-chevron{margin-left:auto;color:var(--muted)}
+.workout-text-import[open] .workout-text-chevron{transform:rotate(180deg)}
+.workout-text-body{padding:0 18px 18px}
+.workout-text-body>label{display:block;margin:0 0 8px;font-size:12px;color:var(--muted)}
+#workout-text-input{display:block;width:100%;padding:14px 16px;min-height:160px;font:13px/1.8 ui-monospace,SFMono-Regular,Menlo,monospace;tab-size:2}
+#workout-text-help,.workout-text-apply-note{font-size:12px;color:var(--muted);line-height:1.6;margin:10px 0 16px}
+.workout-text-tools{display:flex;gap:12px;align-items:end}
+.workout-text-tools label{display:grid;flex:1;gap:6px;font-size:11px;color:var(--muted)}
+.workout-text-tools select{width:100%;padding:10px 12px}
+.workout-text-tools .primary{min-height:44px;display:flex;align-items:center;gap:20px}
+.workout-text-examples{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:16px}
+.workout-text-examples>span{font-size:11px;color:var(--muted);margin-right:4px}
+.workout-text-examples button{border:1px solid var(--line);border-radius:999px;padding:7px 12px;background:var(--panel);color:var(--text);font-size:11px;cursor:pointer}
+.workout-text-examples button:hover{border-color:var(--blue);color:var(--blue)}
+.workout-text-preview{margin-top:20px;padding-top:20px;border-top:1px solid var(--line)}
+.workout-text-preview-head small{font-size:10px;color:var(--blue);letter-spacing:.1em}
+.workout-text-preview-head h3{margin:5px 0 12px;font-size:18px;color:var(--text)}
+.workout-text-facts{display:flex;flex-wrap:wrap;gap:8px}
+.workout-text-facts span{font-size:12px;background:var(--panel2);border:1px solid var(--line);padding:6px 10px;border-radius:7px;font-variant-numeric:tabular-nums;color:var(--text)}
+.workout-text-blocks{counter-reset:workout-block;list-style:none;margin:18px 0;padding:0;display:grid;gap:8px}
+.workout-text-blocks li{counter-increment:workout-block;display:flex;gap:10px;align-items:baseline;padding:12px;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:8px;background:var(--panel);color:var(--text);font-size:13px;line-height:1.65;overflow-wrap:anywhere}
+.workout-text-blocks li:before{content:counter(workout-block,decimal-leading-zero);color:var(--muted);font-size:10px;font-variant-numeric:tabular-nums}
+.workout-text-blocks .phase-warmup{border-left-color:#4bc5f3}.workout-text-blocks .phase-cooldown{border-left-color:#52d5ab}
+.workout-text-warnings{padding:14px 14px 14px 30px;border:1px solid color-mix(in srgb,var(--orange) 40%,var(--line));border-radius:9px;background:color-mix(in srgb,var(--orange) 6%,var(--panel));font-size:12px;color:var(--text);line-height:1.65}
+.workout-text-warnings li+li{margin-top:6px}.workout-text-unmatched{font-size:12px;color:var(--muted)}.workout-text-unmatched summary{cursor:pointer;padding:10px 0}.workout-text-unmatched p{white-space:pre-wrap;overflow-wrap:anywhere}
+.workout-text-status{font-size:12px;line-height:1.6;color:var(--text);margin:12px 0 0}.workout-text-status:empty{display:none}
+#workout-text-undo{margin-top:12px}
+.workout-text-import [hidden]{display:none!important}
+@media(max-width:620px){.workout-text-import>summary{padding:14px;gap:9px}.workout-text-body{padding:0 14px 16px}.workout-text-tools{align-items:stretch;flex-direction:column}.workout-text-tools .primary{justify-content:space-between}.workout-text-import summary strong{font-size:14px}.workout-text-examples button{min-height:40px}.workout-text-preview>.primary{width:100%;min-height:44px}#workout-text-input{font-size:14px}.workout-text-import summary small{font-size:11px}}

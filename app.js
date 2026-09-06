@@ -5,7 +5,29 @@ const transientDialogIds = [
 ];
 const transientDialogSelector=transientDialogIds.join(','),openDialogSelector=transientDialogIds.map(id=>`${id}.open`).join(',');
 const mobileMoreViews=new Set(['knowledge','profile','data']);let closeMobileMore=()=>{};
-function syncDialogLayer(){document.body.classList.toggle('dialog-open',Boolean(document.querySelector(openDialogSelector)));}
+let focusedDialog=null,dialogOpener=null,dialogStack=[];
+function syncDialogLayer(){
+  const openDialogs=[...document.querySelectorAll(openDialogSelector)];
+  const newlyOpened=openDialogs.filter(item=>!dialogStack.includes(item));
+  dialogStack=dialogStack.filter(item=>openDialogs.includes(item)).concat(newlyOpened);
+  const dialog=dialogStack.at(-1);document.body.classList.toggle('dialog-open',Boolean(dialog));
+  const priorFocus=document.activeElement;
+  const shell=document.querySelector('.shell');if(shell)shell.inert=Boolean(dialog);
+  if(dialog&&dialog!==focusedDialog){
+    if(!focusedDialog)dialogOpener=priorFocus;
+    focusedDialog=dialog;dialog.setAttribute('role','dialog');dialog.setAttribute('aria-modal','true');
+    const heading=dialog.querySelector('h2');if(heading?.id)dialog.setAttribute('aria-labelledby',heading.id);
+    const target=heading||dialog;target.tabIndex=-1;target.focus({preventScroll:true});
+  }else if(!dialog&&focusedDialog){focusedDialog=null;if(dialogOpener?.isConnected)dialogOpener.focus({preventScroll:true});dialogOpener=null;}
+}
+document.addEventListener('keydown',event=>{
+  if(event.key!=='Tab'||!focusedDialog)return;
+  const items=[...focusedDialog.querySelectorAll('button,input,select,textarea,summary,a[href],[tabindex]')].filter(el=>!el.disabled&&el.tabIndex>=0&&el.getClientRects().length);
+  if(!items.length){event.preventDefault();return;}
+  const first=items[0],last=items[items.length-1],active=document.activeElement;
+  if(event.shiftKey&&(active===first||!items.includes(active))){event.preventDefault();last.focus();}
+  else if(!event.shiftKey&&(active===last||!items.includes(active))){event.preventDefault();first.focus();}
+});
 function closeTransientDialogs(){document.querySelectorAll(openDialogSelector).forEach(dialog=>{dialog.classList.remove('open');dialog.setAttribute('aria-hidden','true');});syncDialogLayer();}
 document.querySelectorAll(transientDialogSelector).forEach(dialog=>new MutationObserver(syncDialogLayer).observe(dialog,{attributes:true,attributeFilter:['class']}));
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){closeTransientDialogs();closeMobileMore();}});

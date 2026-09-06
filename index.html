@@ -42,6 +42,7 @@
   <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="cloud-v2.css">
   <link rel="stylesheet" href="experience-polish.css">
+  <link rel="stylesheet" href="workout-text.css">
 </head>
 <body>
   <div class="shell">
@@ -468,10 +469,26 @@
       <div class="modal-actions"><button class="ghost" id="generator-cancel" type="button">Annulla</button><button class="primary" id="generator-confirm" type="button">Conferma e aggiorna il Piano</button></div>
     </div>
   </div>
-  <div class="session-modal" id="session-modal" aria-hidden="true">
+  <div class="session-modal" id="session-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="session-form-title">
     <form class="session-dialog" id="session-form">
       <div class="panel-head"><div><small>PROGRAMMAZIONE</small><h2 id="session-form-title">Nuova seduta</h2></div><button class="icon-button" type="button" id="session-close" aria-label="Chiudi">×</button></div>
       <input name="id" type="hidden">
+      <details class="workout-text-import" id="workout-text-import" open>
+        <summary><span class="workout-text-symbol" aria-hidden="true">↳</span><span><strong>Il tuo allenamento, da testo</strong><small>Incolla. Controlla. La seduta è pronta.</small></span><span class="workout-text-chevron" aria-hidden="true">⌄</span></summary>
+        <div class="workout-text-body">
+          <label for="workout-text-input">Incolla una singola seduta</label>
+          <textarea id="workout-text-input" rows="6" maxlength="12000" placeholder="Corsa · ripetute&#10;WU 10 min Z1&#10;6 x (3 min a 4:30/km + 2 min Z1)&#10;CD 10 min Z1" aria-describedby="workout-text-help" spellcheck="false"></textarea>
+          <p id="workout-text-help">Riconosce fasi, ripetute, recuperi e carichi. Il testo originale resta nella seduta. Funziona anche offline.</p>
+          <div class="workout-text-tools">
+            <label>Disciplina<select id="workout-text-category"><option value="auto">Rileva dal testo</option><option value="running">Corsa</option><option value="strength">Forza</option><option value="cycling">Ciclismo</option><option value="swimming">Nuoto</option><option value="hyrox">HYROX</option><option value="metcon">Metcon</option></select></label>
+            <button type="button" class="primary" id="workout-text-analyze">Analizza allenamento <span aria-hidden="true">→</span></button>
+          </div>
+          <div class="workout-text-examples"><span>Prova un esempio</span><button type="button" data-workout-example="running">Corsa</button><button type="button" data-workout-example="strength">Forza</button><button type="button" data-workout-example="hyrox">HYROX</button></div>
+          <section class="workout-text-preview" id="workout-text-preview" aria-label="Anteprima allenamento" hidden></section>
+          <p class="workout-text-status" id="workout-text-status" role="status" aria-live="polite"></p>
+          <button class="ghost small" id="workout-text-undo" type="button" hidden>Annulla compilazione</button>
+        </div>
+      </details>
       <div class="form-grid session-common">
         <label>Categoria<select name="category" id="session-category"><option value="running">Corsa</option><option value="swimming">Nuoto</option><option value="cycling">Ciclismo</option><option value="strength">Forza</option><option value="hyrox">HYROX Spec</option><option value="metcon">Metcon</option><option value="test">Test</option><option value="recovery">Recupero</option></select></label>
         <label>Data<input name="date" type="date" required></label>
@@ -490,7 +507,7 @@
         <h3>Parametri corsa</h3><div class="form-grid">
           <label>Tipo<select name="runType" data-title-source><option>Easy run</option><option>Long run</option><option>Recovery run</option><option>Tempo / Threshold</option><option>Intervals</option><option>Progression run</option><option>Race</option></select></label>
           <label>Distanza prevista (km)<input name="distanceKm" type="number" inputmode="decimal" min="0" max="100" step="0.1"></label>
-          <label>Target principale<select name="runTarget" id="run-target"><option value="hr">Zona cardiaca</option><option value="pace">Passo</option><option value="rpe">RPE</option></select></label>
+          <label>Target principale<select name="runTarget" id="run-target"><option value="hr">Zona cardiaca</option><option value="pace">Passo</option><option value="rpe">RPE</option><option value="free">Vedi i singoli blocchi / libero</option></select></label>
           <label data-run-target="hr">Zona HR<select name="hrZone"><option>Z1</option><option selected>Z2</option><option>Z3</option><option>Z4</option><option>Z5</option></select></label>
           <label data-run-target="pace">Passo: minuti/km<input name="paceMin" type="number" min="2" max="15" step="1" value="5"></label>
           <label data-run-target="pace">Passo: secondi<input name="paceSec" type="number" min="0" max="59" step="1" value="0"></label>
@@ -780,6 +797,8 @@
   <script defer src="reconciliation-model.js"></script>
   <script defer src="training-zones-model.js"></script>
   <script defer src="session-prescription-model.js"></script>
+  <script defer src="workout-text-model.js"></script>
+  <script defer src="workout-text.js"></script>
   <script defer src="symptom-recency-model.js"></script>
   <script defer src="safety-screen-model.js"></script>
   <script defer src="skip-reason-model.js"></script>

@@ -232,6 +232,8 @@
     if (!isFiniteValue(session.durationMin) || Number(session.durationMin) <= 0 || !sessionPriorities.has(session.priority)) invalid('INVALID_SESSIONS','Una seduta contiene durata o priorità non valide.');
     if (owns(session,'startTime') && !isClockTime(session.startTime)) invalid('INVALID_SESSIONS','L’ora di inizio della seduta non è valida.');
     if (!isObject(session.details)) invalid('INVALID_SESSIONS','I dettagli di una seduta non sono validi.');
+    if(owns(session.details,'workoutTextSource')&&(typeof session.details.workoutTextSource!=='string'||session.details.workoutTextSource.length>12000))invalid('INVALID_SESSIONS','Il testo originale della seduta non è valido.');
+    if(owns(session.details,'prescriptionLocked')&&typeof session.details.prescriptionLocked!=='boolean')invalid('INVALID_SESSIONS','Il vincolo della prescrizione non è valido.');
     if(owns(session.details,'runBlocks')&&!validateEnduranceBlocks(session.details.runBlocks))invalid('INVALID_SESSIONS','La struttura della corsa non è valida.');
     if(owns(session.details,'rideBlocks')&&!validateEnduranceBlocks(session.details.rideBlocks))invalid('INVALID_SESSIONS','La struttura dei rulli non è valida.');
     if(owns(session.details,'prescriptionVersion')&&typeof session.details.prescriptionVersion!=='string')invalid('INVALID_SESSIONS','La versione della prescrizione non è valida.');
