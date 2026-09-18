@@ -14,7 +14,7 @@
 
   const categoryMeta = {
     running:{label:'CORSA',css:'run'},swimming:{label:'NUOTO',css:'swim'},cycling:{label:'BICI',css:'bike'},strength:{label:'FORZA',css:'strength'},
-    hyrox:{label:'HYROX SPEC',css:'hyrox'},metcon:{label:'METCON',css:'metcon'},test:{label:'TEST',css:'test'},recovery:{label:'RECUPERO',css:'rest'}
+    hyrox:{label:'HYROX SPEC',css:'hyrox'},metcon:{label:'METCON',css:'metcon'},test:{label:'TEST',css:'test'},recovery:{label:'RECUPERO',css:'rest'},other:{label:'SPORT / ALTRO',css:'other'}
   };
   const priorityRank = {essential:0,important:1,optional:2};
   const priorityLabel = {essential:'Essenziale',important:'Importante',optional:'Opzionale'};
@@ -175,6 +175,10 @@
     ];
     if(session.category==='test')return [{label:'Protocollo',value:details.testProtocol||details.testType||'Da definire'}];
     if(session.category==='recovery')return [{label:'Recupero',value:details.recoveryType||`${session.durationMin} min`}];
+    if(session.category==='other'){
+      const actual=performed(session),minutes=actual?session.outcome.actualDurationMin:session.durationMin;
+      return [{label:actual?'Durata reale':'Durata prevista',value:number(minutes)>0?`${minutes} min`:'Non registrata',actual}];
+    }
     return [{label:'Durata prevista',value:`${session.durationMin} min`}];
   }
   function sessionSummary(session) {

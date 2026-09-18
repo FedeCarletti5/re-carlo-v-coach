@@ -91,6 +91,7 @@
     const source=String(text??'');const warnings=[],rows=[],blocks=[];
     if(!source.trim()||source.length>MAX_LENGTH)return{source,canApply:false,category:null,blocks,rows,warnings:[source.length>MAX_LENGTH?`Il testo supera ${MAX_LENGTH.toLocaleString('it-IT')} caratteri. Dividilo in singole sedute.`:'Incolla il testo di una singola seduta.'],details:{}};
     const detected=detectCategory(source),category=labels[options.category]?options.category:detected||options.fallbackCategory||'running';
+    if(!labels[category])return{source,category,canApply:false,blocks,rows,warnings:['Per questa categoria inserisci il nome dell’attività nel titolo, la durata e le note. Per un allenamento strutturato scegli una disciplina nel menu sopra.'],details:{}};
     if(!detected&&!labels[options.category])warnings.push(`Disciplina non esplicita: uso ${labels[category]}. Puoi cambiarla prima di analizzare.`);
     let phase='work',title='',explicitDuration=null,explicitDistance=null,uncertainVolume=false;
     const details={},lines=splitLines(source);

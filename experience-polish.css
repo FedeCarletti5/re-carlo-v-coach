@@ -235,3 +235,5 @@ main>header small{color:var(--readable-muted);font-size:10px}
   #today-metrics.without-sleep article:first-child>strong{font-size:22px;margin:6px 0;white-space:normal}
   #today-metrics.without-sleep article:first-child>small{margin:0}
 }
+.tag.other{color:#b8cee7;background:#213349}
+html[data-theme="light"] .tag.other{border-color:#bccdde;background:#edf3f9;color:#385878}

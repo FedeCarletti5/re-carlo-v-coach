@@ -21,7 +21,8 @@
     hyrox:{label:'HYROX Spec',kicker:'HYBRID SESSION',css:'hyrox'},
     metcon:{label:'MetCon',kicker:'CONDITIONING SESSION',css:'metcon'},
     test:{label:'Test',kicker:'PERFORMANCE TEST',css:'test'},
-    recovery:{label:'Recupero',kicker:'RECOVERY SESSION',css:'recovery'}
+    recovery:{label:'Recupero',kicker:'RECOVERY SESSION',css:'recovery'},
+    other:{label:'Sport / Altro',kicker:'ATTIVITÀ SPORTIVA',css:'other'}
   };
   const priorityRank={essential:0,important:1,optional:2};
   const priorityLabel={essential:'Essenziale',important:'Importante',optional:'Bonus'};

@@ -82,7 +82,7 @@
     else {primaryAction.id='open-pre-checkin';primaryAction.textContent=model.checkin?'Aggiorna check-in pre sessione':'Avvia check-in pre sessione';primaryAction.addEventListener('click',()=>window.rcCheckins.openPre(session.id));}
     const planAction=element('button','ghost','Vedi nel piano');planAction.type='button';planAction.addEventListener('click',()=>window.rcNavigation?.show('plan'));actions.append(primaryAction,planAction);
     const structure=element('details','today-structure');structure.open=prescriptionOpen;
-    const disclosure=element('summary');const disclosureCopy=element('span');disclosureCopy.append(element('strong','','Struttura della seduta'),element('small','',`${model.prescription.length} blocchi · fasi e target`));disclosure.append(disclosureCopy,element('span','today-structure-chevron','⌄'));
+    const disclosure=element('summary');const disclosureCopy=element('span');disclosureCopy.append(element('strong','','Struttura della seduta'),element('small','',`${model.prescription.length} ${model.prescription.length===1?'blocco':'blocchi'} · fasi e target`));disclosure.append(disclosureCopy,element('span','today-structure-chevron','⌄'));
     structure.addEventListener('toggle',()=>{prescriptionOpen=structure.open;});structure.append(disclosure,prescription);
     sessionPanel.append(head,summary,note,actions,structure);
     appendSecondary(model);

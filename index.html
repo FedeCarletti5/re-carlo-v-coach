@@ -490,7 +490,7 @@
         </div>
       </details>
       <div class="form-grid session-common">
-        <label>Categoria<select name="category" id="session-category"><option value="running">Corsa</option><option value="swimming">Nuoto</option><option value="cycling">Ciclismo</option><option value="strength">Forza</option><option value="hyrox">HYROX Spec</option><option value="metcon">Metcon</option><option value="test">Test</option><option value="recovery">Recupero</option></select></label>
+        <label>Categoria<select name="category" id="session-category"><option value="running">Corsa</option><option value="swimming">Nuoto</option><option value="cycling">Ciclismo</option><option value="strength">Forza</option><option value="hyrox">HYROX Spec</option><option value="metcon">Metcon</option><option value="test">Test</option><option value="recovery">Recupero</option><option value="other">Sport / Altro</option></select></label>
         <label>Data<input name="date" type="date" required></label>
         <label class="full">Titolo della seduta<input name="title" id="session-title" required maxlength="80" placeholder="Es. Easy run"><span class="field-hint compact-mode-hint" id="title-hint">AUTO</span></label>
         <label>Durata prevista (min)<input name="durationMin" type="number" inputmode="numeric" min="5" max="600" step="1" required></label>
@@ -567,6 +567,12 @@
           <label>RPE massimo previsto<input name="testRpe" type="number" min="1" max="10" step="0.5" value="9"></label>
           <label class="full">Protocollo <textarea name="testProtocol" rows="5" placeholder="Riscaldamento, protocollo, recuperi e metrica da registrare"></textarea></label>
         </div>
+      </section>
+
+      <section class="session-fields" data-session-category="other">
+        <h3>Sport / Altro</h3>
+        <p class="muted">Scrivi nel titolo l’attività, per esempio Padel, Tennis o Calcetto, e indica la durata prevista. Puoi aggiungere i dettagli nelle note.</p>
+        <p class="muted">Dopo l’attività usa “Registra” per inserire durata reale e sforzo percepito (RPE): contribuiranno al carico settimanale.</p>
       </section>
 
       <section class="session-fields" data-session-category="recovery">

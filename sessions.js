@@ -4,7 +4,7 @@
   const categoryMeta = {
     running:{ label:'CORSA', css:'run' }, swimming:{ label:'NUOTO', css:'swim' }, cycling:{ label:'BICI', css:'bike' },
     strength:{ label:'FORZA', css:'strength' }, hyrox:{ label:'HYROX SPEC', css:'hyrox' },
-    metcon:{ label:'METCON', css:'metcon' }, test:{ label:'TEST', css:'test' }, recovery:{ label:'RECUPERO', css:'rest' }
+    metcon:{ label:'METCON', css:'metcon' }, test:{ label:'TEST', css:'test' }, recovery:{ label:'RECUPERO', css:'rest' }, other:{ label:'SPORT / ALTRO', css:'other' }
   };
   const priorityMeta = { essential:'Essenziale', important:'Importante', optional:'Opzionale' };
   const outcomeMeta = {
@@ -156,7 +156,7 @@
     if (session.category === 'hyrox') return [timing,`${session.durationMin} min`,d.hyroxFormat,d.hyroxRpe ? `RPE ${d.hyroxRpe}` : '',Array.isArray(d.hyroxStructuredBlocks)&&d.hyroxStructuredBlocks.length ? `${d.hyroxStructuredBlocks.length} blocchi` : ''].filter(Boolean).join(' · ');
     if (session.category === 'metcon') return [timing,`${session.durationMin} min`,d.metconType,d.metconRpe ? `RPE ${d.metconRpe}` : '',Array.isArray(d.metconStructuredBlocks)&&d.metconStructuredBlocks.length ? `${d.metconStructuredBlocks.length} blocchi` : ''].filter(Boolean).join(' · ');
     if (session.category === 'test') return [timing,`${session.durationMin} min`,d.testType,d.testRpe ? `RPE max ${d.testRpe}` : ''].filter(Boolean).join(' · ');
-    return [timing,`${session.durationMin} min`,d.recoveryType].filter(Boolean).join(' · ');
+    return [timing,`${session.durationMin} min`,session.category==='recovery'?d.recoveryType:''].filter(Boolean).join(' · ');
   }
   function dateKey(date) {
     return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
@@ -317,13 +317,14 @@
     document.querySelectorAll('[data-run-target]').forEach(field => field.classList.toggle('active', field.dataset.runTarget === runTargetInput.value));
   }
   function suggestedTitle() {
+    if(categoryInput.value==='other')return 'Sport / Altro';
     const fields = {running:'runType',swimming:'swimType',cycling:'rideType',strength:'strengthFocus',hyrox:'hyroxFormat',metcon:'metconType',test:'testType',recovery:'recoveryType'};
     const field = form.elements.namedItem(fields[categoryInput.value]);
     return field?.value || categoryMeta[categoryInput.value].label;
   }
   function updateSuggestedTitle(force = false) {
     const suggestion = suggestedTitle();
-    titleInput.placeholder = `Es. ${suggestion}`;
+    titleInput.placeholder = categoryInput.value==='other'?'Es. Padel, Tennis o Calcetto':`Es. ${suggestion}`;
     if (force || titleMode === 'auto' || !titleInput.value.trim()) { titleInput.value = suggestion; titleMode = 'auto'; }
     document.getElementById('title-hint').textContent = titleMode === 'auto' ? 'AUTO' : 'PERSONALIZZATO';
   }
@@ -688,6 +689,7 @@
     const pendingDevice=reconciliationModel?.needsPostSessionCompletion?.(outcome);renderObservedEvidence(evidence,Boolean(outcome)&&!pendingDevice);document.getElementById('outcome-delete').hidden=!outcome;toggleOutcomeFields();setOutcomeMode(session,Boolean(options.edit)||pendingDevice);outcomeModal.classList.add('open');outcomeModal.setAttribute('aria-hidden','false');outcomeForm.scrollTop=0;
   }
   function detailsFromForm(data, category) {
+    if(category==='other')return {};
     const optionalNumber=name=>data.get(name)===''?'':Number(data.get(name));
     if (category === 'running') return {runType:data.get('runType'),distanceKm:Number(data.get('distanceKm')) || null,runTarget:data.get('runTarget'),hrZone:data.get('hrZone'),paceMin:Number(data.get('paceMin')),paceSec:Number(data.get('paceSec')),runRpe:optionalNumber('runRpe'),runBlocks:JSON.parse(data.get('runBlocks')||'[]')};
     if (category === 'swimming') return {swimType:data.get('swimType'),swimDistanceM:Number(data.get('swimDistanceM'))||null,swimRpe:optionalNumber('swimRpe'),swimStructuredBlocks:builderRows('swimming')};
