@@ -237,3 +237,7 @@ main>header small{color:var(--readable-muted);font-size:10px}
 }
 .tag.other{color:#b8cee7;background:#213349}
 html[data-theme="light"] .tag.other{border-color:#bccdde;background:#edf3f9;color:#385878}
+.session-copy-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.session-copy-tools button{min-height:44px}
+.session-copy-tools span,.session-copy-notice{color:var(--muted);font-size:12px;line-height:1.5}
+.session-copy-notice{padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin:0 0 16px}

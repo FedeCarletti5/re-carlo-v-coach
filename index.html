@@ -473,6 +473,8 @@
     <form class="session-dialog" id="session-form">
       <div class="panel-head"><div><small>PROGRAMMAZIONE</small><h2 id="session-form-title">Nuova seduta</h2></div><button class="icon-button" type="button" id="session-close" aria-label="Chiudi">×</button></div>
       <input name="id" type="hidden">
+      <div class="session-copy-tools" id="session-copy-tools" hidden><button class="ghost" id="duplicate-session" type="button">Duplica seduta</button><span>Crea una nuova seduta con questi parametri.</span></div>
+      <p class="session-copy-notice" id="session-copy-notice" role="status" hidden>Nuova copia: scegli la data e salva. La seduta originale resta invariata.</p>
       <details class="workout-text-import" id="workout-text-import" open>
         <summary><span class="workout-text-symbol" aria-hidden="true">↳</span><span><strong>Il tuo allenamento, da testo</strong><small>Incolla. Controlla. La seduta è pronta.</small></span><span class="workout-text-chevron" aria-hidden="true">⌄</span></summary>
         <div class="workout-text-body">
@@ -490,7 +492,7 @@
         </div>
       </details>
       <div class="form-grid session-common">
-        <label>Categoria<select name="category" id="session-category"><option value="running">Corsa</option><option value="swimming">Nuoto</option><option value="cycling">Ciclismo</option><option value="strength">Forza</option><option value="hyrox">HYROX Spec</option><option value="metcon">Metcon</option><option value="test">Test</option><option value="recovery">Recupero</option><option value="other">Sport / Altro</option></select></label>
+        <label>Categoria<select name="category" id="session-category"><option value="running">Corsa</option><option value="swimming">Nuoto</option><option value="cycling">Ciclismo</option><option value="strength">Forza</option><option value="hyrox">HYROX Spec</option><option value="metcon">Metcon</option><option value="test">Test</option><option value="other">Sport / Altro</option><option value="recovery">Recupero</option></select></label>
         <label>Data<input name="date" type="date" required></label>
         <label class="full">Titolo della seduta<input name="title" id="session-title" required maxlength="80" placeholder="Es. Easy run"><span class="field-hint compact-mode-hint" id="title-hint">AUTO</span></label>
         <label>Durata prevista (min)<input name="durationMin" type="number" inputmode="numeric" min="5" max="600" step="1" required></label>

@@ -46,6 +46,8 @@
   let titleMode = 'auto';
   let workoutTextSource = '';
   let prescriptionLocked = false;
+  let duplicateDraft = false;
+  let draftDetailsSeed = null;
   let currentEvidenceIndex=new Map();
   let activeOutcomeEvidence=null;
   let activeActualEnduranceBlocks=[];
@@ -459,16 +461,21 @@
     });
     if(!items.length){const empty=document.createElement('div');empty.className='run-empty';empty.textContent='Nessuna fase: aggiungi un segmento o una sequenza ripetuta.';list.append(empty);} form.elements.namedItem('runBlocks').value=JSON.stringify(items);
   }
-  function open(session = null) {
+  function open(session = null, options = {}) {
+    duplicateDraft=Boolean(options.duplicate);
+    if(duplicateDraft)session=prescriptionModel.duplicateSessionDraft(session);
+    const existing=Boolean(session?.id);
     clearSessionSaveFeedback();form.reset(); form.elements.id.value = ''; form.elements.date.value = localDate();
     workoutTextSource=session?.details?.workoutTextSource||'';
     prescriptionLocked=session?.details?.prescriptionLocked===true;
     textImporter.reset(session);
     form.elements.startTime.value=calendarFeedModel?.DEFAULT_START_TIME||'09:00';
-    document.getElementById('session-form-title').textContent = session ? 'Modifica seduta' : 'Nuova seduta';
-    document.getElementById('delete-session').hidden = !session;
+    document.getElementById('session-form-title').textContent = duplicateDraft?'Duplica seduta':existing?'Modifica seduta':'Nuova seduta';
+    document.getElementById('delete-session').hidden = !existing;
+    document.getElementById('session-copy-tools').hidden = !existing;
+    document.getElementById('session-copy-notice').hidden = !duplicateDraft;
     const outcomeButton=document.getElementById('session-outcome');
-    outcomeButton.hidden = !session || !canRecordOutcome(session);
+    outcomeButton.hidden = !existing || !canRecordOutcome(session);
     outcomeButton.textContent = reconciliationModel?.needsPostSessionCompletion?.(session?.outcome) ? 'Completa post-sessione' : session?.outcome ? 'Dettagli' : currentEvidenceIndex.has(session?.id) ? 'Completa check-out' : 'Registra';
     if (session) {
       const values = { ...session, ...(session.details || {}) };
@@ -479,7 +486,9 @@
     } else {
       titleMode = 'auto';
     }
-    renderPrescriptionSource(session);hydrateBuilders(session); toggleFields(); updateSuggestedTitle(!session);updateSessionEndTime(); modal.classList.add('open'); modal.setAttribute('aria-hidden','false');form.scrollTop=0;
+    renderPrescriptionSource(existing?session:null);hydrateBuilders(session); toggleFields(); updateSuggestedTitle(!session);updateSessionEndTime(); modal.classList.add('open'); modal.setAttribute('aria-hidden','false');form.scrollTop=0;
+    draftDetailsSeed=session?{category:session.category,original:structuredClone(session.details||{}),initial:detailsFromForm(new FormData(form),session.category)}:null;
+    if(duplicateDraft)requestAnimationFrame(()=>form.elements.date.focus());
   }
 
   function renderPrescriptionSource(session){
@@ -700,6 +709,13 @@
     if (category === 'test') return {testType:data.get('testType'),testRpe:Number(data.get('testRpe')),testProtocol:data.get('testProtocol').trim()};
     return {recoveryType:data.get('recoveryType')};
   }
+  function editedDraftDetails(data,category){
+    const current=detailsFromForm(data,category);
+    const details=draftDetailsSeed?.category===category?prescriptionModel.mergeEditedDetails(draftDetailsSeed.original,draftDetailsSeed.initial,current):current;
+    if(workoutTextSource)details.workoutTextSource=workoutTextSource;
+    if(prescriptionLocked)details.prescriptionLocked=true;
+    return details;
+  }
   categoryInput.addEventListener('change', () => { toggleFields(); updateSuggestedTitle();if(categoryInput.value==='cycling')regenerateRideBuilder(); });
   runTargetInput.addEventListener('change', toggleFields);
   document.querySelectorAll('[data-title-source]').forEach(field => field.addEventListener('change', () => updateSuggestedTitle()));
@@ -726,6 +742,11 @@
   document.getElementById('calendar-today').addEventListener('click',()=>{const today=new Date(),todayKey=localDate();calendarCursor=new Date(today.getFullYear(),today.getMonth(),1);listWeekStart=planViewModel.mondayFor(todayKey);render();if(planView==='list'){const targets=[...document.querySelectorAll(`#schedule [data-session-date="${todayKey}"]`)];if(targets.length){targets.forEach(node=>node.classList.add('today-focus'));targets[0].scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>targets.forEach(node=>node.classList.remove('today-focus')),2800);}}});
   document.getElementById('session-close').addEventListener('click', close);
   document.getElementById('session-cancel').addEventListener('click', close);
+  document.getElementById('duplicate-session').addEventListener('click',()=>{
+    if(!validateSessionForm())return;
+    const data=new FormData(form),category=data.get('category');
+    open({category,title:data.get('title').trim(),durationMin:Number(data.get('durationMin')),startTime:data.get('startTime'),priority:data.get('priority'),notes:data.get('notes').trim(),details:editedDraftDetails(data,category)},{duplicate:true});
+  });
   document.getElementById('session-outcome').addEventListener('click',()=>{const session=sessions.find(item=>item.id===form.elements.id.value);if(session){close();openOutcome(session);}});
   document.getElementById('outcome-close').addEventListener('click',closeOutcome);
   document.getElementById('outcome-cancel').addEventListener('click',closeOutcome);
@@ -766,7 +787,7 @@
     try{
       const category = data.get('category'),editingBaseline=Boolean(existing?.baselinePlan); let session = {
         id:id || (crypto.randomUUID ? crypto.randomUUID() : `session-${Date.now()}`), date:data.get('date'), category,
-        title:data.get('title').trim(),durationMin:Number(data.get('durationMin')),startTime:calendarFeedModel?.startTime?.(String(data.get('startTime')||''))||'09:00',priority:data.get('priority'),details:detailsFromForm(data,category),
+        title:data.get('title').trim(),durationMin:Number(data.get('durationMin')),startTime:calendarFeedModel?.startTime?.(String(data.get('startTime')||''))||'09:00',priority:data.get('priority'),details:duplicateDraft?editedDraftDetails(data,category):detailsFromForm(data,category),
         notes:data.get('notes').trim(),outcome:existing?.outcome||null,titleMode,createdAt:existing?.createdAt || new Date().toISOString(),updatedAt:new Date().toISOString(),
         ...(existing?.rationale?{rationale:existing.rationale}:{}),...(existing?.generated&&!editingBaseline?{generated:true}:{}),...(existing?.generatorVersion?{generatorVersion:existing.generatorVersion}:{}),...(editingBaseline?{manualOverride:true,baselineOrigin:existing.baselinePlan}:{}),
         ...(existing?.planImport?{planImport:existing.planImport}:{}),...(existing?.externalPlanReference?{externalPlanReference:existing.externalPlanReference}:{}),...(existing?.coachPlan?{coachPlan:existing.coachPlan}:{}),
@@ -818,10 +839,10 @@
     });
   }
   function captureDraft(){
-    return{values:Object.fromEntries(new FormData(form)),titleMode,workoutTextSource,prescriptionLocked};
+    return{values:Object.fromEntries(new FormData(form)),titleMode,workoutTextSource,prescriptionLocked,draftDetailsSeed:structuredClone(draftDetailsSeed)};
   }
   function restoreDraft(snapshot){
-    setDraftValues(snapshot.values);titleMode=snapshot.titleMode;workoutTextSource=snapshot.workoutTextSource;prescriptionLocked=snapshot.prescriptionLocked;
+    setDraftValues(snapshot.values);titleMode=snapshot.titleMode;workoutTextSource=snapshot.workoutTextSource;prescriptionLocked=snapshot.prescriptionLocked;draftDetailsSeed=snapshot.draftDetailsSeed;
     const details={};['runBlocks','rideBlocks',...Object.values(builderInputNames)].forEach(name=>{details[name]=JSON.parse(snapshot.values[name]||'[]');});
     hydrateBuilders({details});toggleFields();updateSuggestedTitle();updateSessionEndTime();
   }
@@ -829,7 +850,7 @@
     onApply(result){
       const previous=captureDraft();
       const fields={category:result.category,title:result.title,durationMin:result.durationMin??'',distanceKm:'',swimDistanceM:'',...result.details};
-      setDraftValues(fields);titleMode='custom';workoutTextSource=result.source;prescriptionLocked=true;
+      setDraftValues(fields);titleMode='custom';workoutTextSource=result.source;prescriptionLocked=true;draftDetailsSeed=null;
       hydrateBuilders({details:result.details});toggleFields();updateSuggestedTitle();updateSessionEndTime();clearSessionSaveFeedback();return previous;
     },
     onUndo:restoreDraft

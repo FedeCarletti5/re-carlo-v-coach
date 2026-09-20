@@ -16,6 +16,17 @@
   function number(value,fallback=0){const parsed=Number(value);return Number.isFinite(parsed)?parsed:fallback;}
   function clamp(value,min,max){return Math.max(min,Math.min(max,value));}
   function cleanText(value){return String(value??'').trim();}
+  function duplicateSessionDraft(session){
+    // Only planned content belongs to the new manual session, never its history or plan identity.
+    return {date:'',category:session.category,title:session.title,durationMin:session.durationMin,startTime:session.startTime||'09:00',priority:session.priority,
+      details:{...clone(session.details||{}),prescriptionLocked:true},notes:personalNotes(session),titleMode:'custom',outcome:null};
+  }
+  function mergeEditedDetails(original={},initial={},current={}){
+    const next=clone(original);
+    // Preserve fields that the editor does not expose, and missing values left untouched.
+    Object.entries(current).forEach(([key,value])=>{if(JSON.stringify(value)!==JSON.stringify(initial[key]))next[key]=clone(value);});
+    return next;
+  }
   function parsedLegacyNotes(value){
     const reference={},personal=[];
     cleanText(value).split(/\r?\n/).map(line=>line.trim()).filter(Boolean).forEach(line=>{
@@ -274,5 +285,5 @@
     return[`${number(item?.amount)}${unit}`.trim(),item?.target,item?.paceHint].filter(Boolean).join(' · ');
   }
 
-  return{VERSION,PHASE_LABELS,paceText,paceRange,paceProfile,hrContext,runPrescription,ridePrescription,structuredDuration,fitTimeBlocks,adaptDuration,enrichSession,enrichSessions,plannedBlocks,actualBlocks,inferIntensity,blockLabel,blockSummary,parsedLegacyNotes,legacyPlanReference,personalNotes,rationaleFor,structuredPrescriptionKey,prescriptionAuthority,normalizeSessionContent};
+  return{VERSION,PHASE_LABELS,duplicateSessionDraft,mergeEditedDetails,paceText,paceRange,paceProfile,hrContext,runPrescription,ridePrescription,structuredDuration,fitTimeBlocks,adaptDuration,enrichSession,enrichSessions,plannedBlocks,actualBlocks,inferIntensity,blockLabel,blockSummary,parsedLegacyNotes,legacyPlanReference,personalNotes,rationaleFor,structuredPrescriptionKey,prescriptionAuthority,normalizeSessionContent};
 });
