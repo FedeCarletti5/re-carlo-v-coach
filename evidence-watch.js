@@ -3,8 +3,8 @@
 
   const model=window.rcEvidenceWatchModel,store=window.rcDataStore,panel=document.getElementById('evidence-watch-panel');
   if(!model||!panel)return;
-  const remoteUrl='https://raw.githubusercontent.com/ReCarloV/re-carlo-v-coach/main/evidence-watch.json';
-  const workflowUrl='https://github.com/ReCarloV/re-carlo-v-coach/actions/workflows/evidence-watch.yml';
+  const remoteUrl='https://raw.githubusercontent.com/FedeCarletti5/re-carlo-v-coach/main/evidence-watch.json';
+  const workflowUrl='https://github.com/FedeCarletti5/re-carlo-v-coach/actions/workflows/evidence-watch.yml';
   const status=document.getElementById('evidence-watch-status'),lastScan=document.getElementById('evidence-watch-last-scan'),coverage=document.getElementById('evidence-watch-coverage'),candidateCount=document.getElementById('evidence-watch-candidate-count'),changeCount=document.getElementById('evidence-watch-change-count'),summary=document.getElementById('evidence-watch-summary'),domains=document.getElementById('evidence-watch-domains'),candidates=document.getElementById('evidence-watch-candidates'),candidateSection=document.getElementById('evidence-watch-candidate-section'),reviewSummary=document.getElementById('evidence-watch-review-summary'),standardStatus=document.getElementById('evidence-watch-standard-status'),listMeta=document.getElementById('evidence-watch-list-meta'),filter=document.getElementById('evidence-watch-filter'),reload=document.getElementById('evidence-watch-reload'),manual=document.getElementById('evidence-watch-manual');
   let loaded=false,loading=false,currentFeed=null,currentReport=null;
 

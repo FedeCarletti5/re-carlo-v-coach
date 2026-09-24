@@ -25,11 +25,11 @@ const domains=[
 
 function endpoint(name,params){
   const url=new URL(`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/${name}.fcgi`);
-  Object.entries({db:'pubmed',retmode:'json',tool:'ReCarloVEvidenceWatch',email:'recarlov@users.noreply.github.com',...params}).forEach(([key,value])=>url.searchParams.set(key,String(value)));
+  Object.entries({db:'pubmed',retmode:'json',tool:'ReCarloVEvidenceWatch',email:'305432648+FedeCarletti5@users.noreply.github.com',...params}).forEach(([key,value])=>url.searchParams.set(key,String(value)));
   return url;
 }
 async function ncbiJson(url){
-  const response=await fetch(url,{headers:{Accept:'application/json','User-Agent':'ReCarloVEvidenceWatch/1.0 (public research surveillance; recarlov@users.noreply.github.com)'}});
+  const response=await fetch(url,{headers:{Accept:'application/json','User-Agent':'ReCarloVEvidenceWatch/1.0 (public research surveillance; 305432648+FedeCarletti5@users.noreply.github.com)'}});
   if(!response.ok)throw new Error(`NCBI ${response.status} ${response.statusText}`);
   return response.json();
 }
