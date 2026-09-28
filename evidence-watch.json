@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "generatedAt": "2026-09-21T10:51:50.993Z",
+  "generatedAt": "2026-09-28T11:49:06.010Z",
   "standardVersion": "1.0.0",
   "scan": {
-    "from": "2026-09-08",
-    "to": "2026-09-21",
+    "from": "2026-09-15",
+    "to": "2026-09-28",
     "windowDays": 14
   },
   "source": {
@@ -16,19 +16,19 @@
     {
       "key": "endurance",
       "label": "Endurance",
-      "resultCount": 19,
+      "resultCount": 24,
       "status": "ok"
     },
     {
       "key": "strength",
       "label": "Forza",
-      "resultCount": 12,
+      "resultCount": 10,
       "status": "ok"
     },
     {
       "key": "concurrent",
       "label": "Concurrent / hybrid",
-      "resultCount": 3,
+      "resultCount": 4,
       "status": "ok"
     },
     {
@@ -40,35 +40,66 @@
     {
       "key": "plyometric",
       "label": "Pliometria",
-      "resultCount": 1,
+      "resultCount": 3,
       "status": "ok"
     },
     {
       "key": "recovery",
       "label": "Recupero e sonno",
-      "resultCount": 66,
+      "resultCount": 75,
       "status": "ok"
     },
     {
       "key": "wearables",
       "label": "Wearable e HRV",
-      "resultCount": 33,
+      "resultCount": 32,
       "status": "ok"
     },
     {
       "key": "monitoring",
       "label": "Monitoraggio del carico",
-      "resultCount": 7,
+      "resultCount": 8,
       "status": "ok"
     },
     {
       "key": "return-to-sport",
       "label": "Return to sport",
-      "resultCount": 50,
+      "resultCount": 39,
       "status": "ok"
     }
   ],
   "candidates": [
+    {
+      "pmid": "42782212",
+      "title": "Editorial Commentary: Delphi Consensus Clarifies Diagnosis, Treatment, Rehabilitation, and Return to Play but Is Limited by Deviations From the Delphi Methodology.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42782212/",
+      "publishedAt": "2026-09-24",
+      "journal": "Arthroscopy : the journal of arthroscopic & related surgery : official publication of the Arthroscopy Association of North America and the International Arthroscopy Association",
+      "authors": [
+        "Hohmann E"
+      ],
+      "domains": [
+        "return-to-sport"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "evidenceType": {
+        "key": "anchor",
+        "tier": "A",
+        "label": "Consensus / linea guida"
+      },
+      "population": {
+        "key": "limited",
+        "label": "Applicabilità limitata"
+      },
+      "practicalRelevance": "low",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-09-28T11:49:06.010Z",
+      "lastSeenAt": "2026-09-28T11:49:06.010Z"
+    },
     {
       "pmid": "42549304",
       "title": "ACL rehabilitation after reconstruction: Evidence-based consensus recommendations from the German Knee Society-Part IV.",
@@ -142,6 +173,114 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-07-31T11:16:53.165Z",
       "lastSeenAt": "2026-07-31T11:31:22.191Z"
+    },
+    {
+      "pmid": "42798689",
+      "title": "The effects of coenzyme Q10 supplementation on exercise-induced oxidative stress and related physiological outcomes in athletes: a systematic review and meta-analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42798689/",
+      "publishedAt": "2026-10-01",
+      "journal": "3 Biotech",
+      "authors": [
+        "Lu S",
+        "Zhong W",
+        "Wang H"
+      ],
+      "domains": [
+        "recovery"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "direct",
+        "label": "Popolazione sportiva"
+      },
+      "practicalRelevance": "high",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-09-28T11:49:06.010Z",
+      "lastSeenAt": "2026-09-28T11:49:06.010Z"
+    },
+    {
+      "pmid": "42791500",
+      "title": "Meniscal Allograft Transplantation in Athletes Offers Improved Function, Pain, and Satisfaction With High Levels of Return to Sport and Graft Survivorship Despite High Complication and Revision Rates: A Systematic Review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42791500/",
+      "publishedAt": "2026-09-25",
+      "journal": "Arthroscopy : the journal of arthroscopic & related surgery : official publication of the Arthroscopy Association of North America and the International Arthroscopy Association",
+      "authors": [
+        "Mowers CC",
+        "Jackson GR",
+        "Flynn G",
+        "Childers JT",
+        "Hyeamang LJ",
+        "Alfonsi S"
+      ],
+      "domains": [
+        "return-to-sport"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "direct",
+        "label": "Popolazione sportiva"
+      },
+      "practicalRelevance": "high",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-09-28T11:49:06.010Z",
+      "lastSeenAt": "2026-09-28T11:49:06.010Z"
+    },
+    {
+      "pmid": "42768963",
+      "title": "Coaches' verbal encouragement in soccer: A systematic review of its effects on internal training load, physical and time-motion performance, and technical skills.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42768963/",
+      "publishedAt": "2026-09-22",
+      "journal": "Journal of sports sciences",
+      "authors": [
+        "Selmi O",
+        "Marzouki H",
+        "Bouassida A",
+        "Ammar A",
+        "Soylu Y",
+        "Boukhris O"
+      ],
+      "domains": [
+        "monitoring"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "direct",
+        "label": "Popolazione sportiva"
+      },
+      "practicalRelevance": "high",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-09-28T11:49:06.010Z",
+      "lastSeenAt": "2026-09-28T11:49:06.010Z"
     },
     {
       "pmid": "42758700",
@@ -427,45 +566,6 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-07-31T11:16:53.165Z",
       "lastSeenAt": "2026-07-31T11:31:22.191Z"
-    },
-    {
-      "pmid": "42757634",
-      "title": "Lower-limb neuromuscular electrical stimulation (NMES) for adults with kidney failure undergoing dialysis.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42757634/",
-      "publishedAt": "2026-09-18",
-      "journal": "The Cochrane database of systematic reviews",
-      "authors": [
-        "Beresford L",
-        "Burgess LC",
-        "Dewhurst S",
-        "Hutchison A",
-        "Pandyan AD",
-        "supported by Cochrane Kidney and Transplant"
-      ],
-      "domains": [
-        "concurrent"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Systematic Review",
-        "Meta-Analysis",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "contextual",
-        "label": "Applicabilità contestuale"
-      },
-      "practicalRelevance": "medium",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-09-21T10:51:50.993Z",
-      "lastSeenAt": "2026-09-21T10:51:50.993Z"
     },
     {
       "pmid": "42732566",
@@ -2141,113 +2241,6 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-09-07T10:30:35.210Z",
       "lastSeenAt": "2026-09-07T10:30:35.210Z"
-    },
-    {
-      "pmid": "42713232",
-      "title": "Influence of Repeated-Sprint Bout Duration in Sprint Interval Training Intervention on Physical Performance Adaptations of Young Volleyball Players.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42713232/",
-      "publishedAt": "2026-09-01",
-      "journal": "Journal of sports science & medicine",
-      "authors": [
-        "Zhang D",
-        "Ma L",
-        "Li X"
-      ],
-      "domains": [
-        "plyometric"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "evidenceType": {
-        "key": "controlled",
-        "tier": "C",
-        "label": "Studio controllato"
-      },
-      "population": {
-        "key": "contextual",
-        "label": "Applicabilità contestuale"
-      },
-      "practicalRelevance": "medium",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-09-14T10:48:22.811Z",
-      "lastSeenAt": "2026-09-14T10:48:22.811Z"
-    },
-    {
-      "pmid": "42713598",
-      "title": "Acute Performance, Mechanical and Thermal Effects of Isometric Conditioning Versus Standardized Volleyball Pre-Training Activation in Highly Trained Male Players.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42713598/",
-      "publishedAt": "2026-09-01",
-      "journal": "Journal of sports science & medicine",
-      "authors": [
-        "Terbalyan A",
-        "Gepfert M",
-        "Szymczyk P",
-        "Koźlenia D",
-        "Lum D",
-        "Jarosz J"
-      ],
-      "domains": [
-        "plyometric"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Comparative Study"
-      ],
-      "evidenceType": {
-        "key": "controlled",
-        "tier": "C",
-        "label": "Studio controllato"
-      },
-      "population": {
-        "key": "direct",
-        "label": "Popolazione sportiva"
-      },
-      "practicalRelevance": "medium",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-09-14T10:48:22.811Z",
-      "lastSeenAt": "2026-09-14T10:48:22.811Z"
-    },
-    {
-      "pmid": "42667572",
-      "title": "Technology and Obesity: A Year in Review.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42667572/",
-      "publishedAt": "2026-08-29",
-      "journal": "Advances in therapy",
-      "authors": [
-        "Patra S",
-        "Bhandarkar A",
-        "Kapoor N",
-        "Kalra S"
-      ],
-      "domains": [
-        "recovery"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "review",
-        "tier": "C",
-        "label": "Revisione narrativa / scoping"
-      },
-      "population": {
-        "key": "contextual",
-        "label": "Applicabilità contestuale"
-      },
-      "practicalRelevance": "medium",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-08-31T11:41:16.506Z",
-      "lastSeenAt": "2026-08-31T11:41:16.506Z"
     }
   ],
   "review": {
