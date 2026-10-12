@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "generatedAt": "2026-10-05T12:24:21.898Z",
+  "generatedAt": "2026-10-12T13:19:18.817Z",
   "standardVersion": "1.0.0",
   "scan": {
-    "from": "2026-09-22",
-    "to": "2026-10-05",
+    "from": "2026-09-29",
+    "to": "2026-10-12",
     "windowDays": 14
   },
   "source": {
@@ -16,19 +16,19 @@
     {
       "key": "endurance",
       "label": "Endurance",
-      "resultCount": 48,
+      "resultCount": 57,
       "status": "ok"
     },
     {
       "key": "strength",
       "label": "Forza",
-      "resultCount": 20,
+      "resultCount": 27,
       "status": "ok"
     },
     {
       "key": "concurrent",
       "label": "Concurrent / hybrid",
-      "resultCount": 1,
+      "resultCount": 0,
       "status": "ok"
     },
     {
@@ -40,31 +40,31 @@
     {
       "key": "plyometric",
       "label": "Pliometria",
-      "resultCount": 8,
+      "resultCount": 6,
       "status": "ok"
     },
     {
       "key": "recovery",
       "label": "Recupero e sonno",
-      "resultCount": 126,
+      "resultCount": 129,
       "status": "ok"
     },
     {
       "key": "wearables",
       "label": "Wearable e HRV",
-      "resultCount": 47,
+      "resultCount": 62,
       "status": "ok"
     },
     {
       "key": "monitoring",
       "label": "Monitoraggio del carico",
-      "resultCount": 21,
+      "resultCount": 23,
       "status": "ok"
     },
     {
       "key": "return-to-sport",
       "label": "Return to sport",
-      "resultCount": 57,
+      "resultCount": 71,
       "status": "ok"
     }
   ],
@@ -137,7 +137,7 @@
       "agreementWithStandard": "to-review",
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-10-05T12:24:21.898Z",
-      "lastSeenAt": "2026-10-05T12:24:21.898Z"
+      "lastSeenAt": "2026-10-12T13:19:18.817Z"
     },
     {
       "pmid": "42782212",
@@ -263,8 +263,7 @@
       ],
       "publicationTypes": [
         "Systematic Review",
-        "Journal Article",
-        "Review"
+        "Journal Article"
       ],
       "evidenceType": {
         "key": "synthesis",
@@ -280,7 +279,7 @@
       "agreementWithStandard": "to-review",
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-10-05T12:24:21.898Z",
-      "lastSeenAt": "2026-10-05T12:24:21.898Z"
+      "lastSeenAt": "2026-10-12T13:19:18.817Z"
     },
     {
       "pmid": "42798689",
@@ -711,7 +710,7 @@
       "agreementWithStandard": "to-review",
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-10-05T12:24:21.898Z",
-      "lastSeenAt": "2026-10-05T12:24:21.898Z"
+      "lastSeenAt": "2026-10-12T13:19:18.817Z"
     },
     {
       "pmid": "42733676",
@@ -2065,7 +2064,74 @@
       "agreementWithStandard": "to-review",
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-10-05T12:24:21.898Z",
-      "lastSeenAt": "2026-10-05T12:24:21.898Z"
+      "lastSeenAt": "2026-10-12T13:19:18.817Z"
+    },
+    {
+      "pmid": "42853711",
+      "title": "Dose-dependent effects of sodium bicarbonate supplementation combined with sprint interval training on performance adaptations in basketball players: a randomized placebo-controlled trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42853711/",
+      "publishedAt": "2026-12-30",
+      "journal": "Journal of the International Society of Sports Nutrition",
+      "authors": [
+        "Wang X"
+      ],
+      "domains": [
+        "recovery"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Randomized Controlled Trial"
+      ],
+      "evidenceType": {
+        "key": "controlled",
+        "tier": "C",
+        "label": "Studio controllato"
+      },
+      "population": {
+        "key": "contextual",
+        "label": "Applicabilità contestuale"
+      },
+      "practicalRelevance": "medium",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-10-12T13:19:18.817Z",
+      "lastSeenAt": "2026-10-12T13:19:18.817Z"
+    },
+    {
+      "pmid": "42842126",
+      "title": "The Heel-Strike Fallacy and Cadence Beliefs in Distance Running: A Narrative Review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42842126/",
+      "publishedAt": "2026-10-07",
+      "journal": "Sports medicine - open",
+      "authors": [
+        "Patoz A",
+        "Gindre C",
+        "Lussiana T",
+        "Breine B"
+      ],
+      "domains": [
+        "endurance"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "evidenceType": {
+        "key": "review",
+        "tier": "C",
+        "label": "Revisione narrativa / scoping"
+      },
+      "population": {
+        "key": "contextual",
+        "label": "Applicabilità contestuale"
+      },
+      "practicalRelevance": "medium",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-10-12T13:19:18.817Z",
+      "lastSeenAt": "2026-10-12T13:19:18.817Z"
     },
     {
       "pmid": "42190152",
@@ -2102,7 +2168,7 @@
       "agreementWithStandard": "to-review",
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-10-05T12:24:21.898Z",
-      "lastSeenAt": "2026-10-05T12:24:21.898Z"
+      "lastSeenAt": "2026-10-12T13:19:18.817Z"
     },
     {
       "pmid": "42486377",
@@ -2170,76 +2236,6 @@
       "population": {
         "key": "contextual",
         "label": "Applicabilità contestuale"
-      },
-      "practicalRelevance": "medium",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-10-05T12:24:21.898Z",
-      "lastSeenAt": "2026-10-05T12:24:21.898Z"
-    },
-    {
-      "pmid": "42606618",
-      "title": "Analytical approaches to account for muscle size when evaluating strength.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42606618/",
-      "publishedAt": "2026-10-01",
-      "journal": "European journal of applied physiology",
-      "authors": [
-        "Chatlaong MA",
-        "Bentley JP",
-        "Wohlgemuth KJ",
-        "Dankel SJ",
-        "Loenneke JP",
-        "Jessee MB"
-      ],
-      "domains": [
-        "strength"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "review",
-        "tier": "C",
-        "label": "Revisione narrativa / scoping"
-      },
-      "population": {
-        "key": "contextual",
-        "label": "Applicabilità contestuale"
-      },
-      "practicalRelevance": "medium",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-10-05T12:24:21.898Z",
-      "lastSeenAt": "2026-10-05T12:24:21.898Z"
-    },
-    {
-      "pmid": "42662575",
-      "title": "Effects of progressive-versus constant-intensity high-intensity functional training on health-related physical fitness in untrained female university students: A randomized controlled trial.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42662575/",
-      "publishedAt": "2026-10-01",
-      "journal": "Journal of exercise science and fitness",
-      "authors": [
-        "Chen H",
-        "Liu D",
-        "Shen J"
-      ],
-      "domains": [
-        "monitoring"
-      ],
-      "publicationTypes": [
-        "Journal Article"
-      ],
-      "evidenceType": {
-        "key": "controlled",
-        "tier": "C",
-        "label": "Studio controllato"
-      },
-      "population": {
-        "key": "direct",
-        "label": "Popolazione sportiva"
       },
       "practicalRelevance": "medium",
       "applicability": "to-review",
