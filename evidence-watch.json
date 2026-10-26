@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "generatedAt": "2026-10-19T10:58:40.427Z",
+  "generatedAt": "2026-10-26T11:18:17.074Z",
   "standardVersion": "1.0.0",
   "scan": {
-    "from": "2026-10-06",
-    "to": "2026-10-19",
+    "from": "2026-10-13",
+    "to": "2026-10-26",
     "windowDays": 14
   },
   "source": {
@@ -16,19 +16,19 @@
     {
       "key": "endurance",
       "label": "Endurance",
-      "resultCount": 30,
+      "resultCount": 20,
       "status": "ok"
     },
     {
       "key": "strength",
       "label": "Forza",
-      "resultCount": 21,
+      "resultCount": 13,
       "status": "ok"
     },
     {
       "key": "concurrent",
       "label": "Concurrent / hybrid",
-      "resultCount": 3,
+      "resultCount": 1,
       "status": "ok"
     },
     {
@@ -40,31 +40,31 @@
     {
       "key": "plyometric",
       "label": "Pliometria",
-      "resultCount": 5,
+      "resultCount": 6,
       "status": "ok"
     },
     {
       "key": "recovery",
       "label": "Recupero e sonno",
-      "resultCount": 55,
+      "resultCount": 61,
       "status": "ok"
     },
     {
       "key": "wearables",
       "label": "Wearable e HRV",
-      "resultCount": 32,
+      "resultCount": 28,
       "status": "ok"
     },
     {
       "key": "monitoring",
       "label": "Monitoraggio del carico",
-      "resultCount": 9,
+      "resultCount": 7,
       "status": "ok"
     },
     {
       "key": "return-to-sport",
       "label": "Return to sport",
-      "resultCount": 36,
+      "resultCount": 30,
       "status": "ok"
     }
   ],
@@ -104,7 +104,7 @@
       "agreementWithStandard": "to-review",
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-10-19T10:58:40.427Z",
-      "lastSeenAt": "2026-10-19T10:58:40.427Z"
+      "lastSeenAt": "2026-10-26T11:18:17.074Z"
     },
     {
       "pmid": "42828435",
@@ -173,7 +173,7 @@
       "agreementWithStandard": "to-review",
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-10-19T10:58:40.427Z",
-      "lastSeenAt": "2026-10-19T10:58:40.427Z"
+      "lastSeenAt": "2026-10-26T11:18:17.074Z"
     },
     {
       "pmid": "42133198",
@@ -355,6 +355,77 @@
       "lastSeenAt": "2026-10-12T13:19:18.817Z"
     },
     {
+      "pmid": "42910640",
+      "title": "Suture Augmentation May Facilitate Earlier Return to Sport Without Improving Return Rates or Clinical Outcomes Following Modified Broström Repair: A Systematic Review and Meta-Analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42910640/",
+      "publishedAt": "2026-10-22",
+      "journal": "Foot & ankle specialist",
+      "authors": [
+        "Rubin J",
+        "Alzobi O",
+        "Hedbany D",
+        "Tham A",
+        "Milner J",
+        "Emanuel KS"
+      ],
+      "domains": [
+        "return-to-sport"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "direct",
+        "label": "Popolazione sportiva"
+      },
+      "practicalRelevance": "high",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-10-26T11:18:17.074Z",
+      "lastSeenAt": "2026-10-26T11:18:17.074Z"
+    },
+    {
+      "pmid": "42627171",
+      "title": "Impact of Weekly Workload Distribution on Performance in Male Soccer Players Across Competitive Levels-Scientific Hypothesis or Empirical Evidence: A Systematic Review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42627171/",
+      "publishedAt": "2026-10-20",
+      "journal": "Journal of strength and conditioning research",
+      "authors": [
+        "Lafrance G",
+        "Dupont G",
+        "Ahmaidi S",
+        "Abaïdia AE"
+      ],
+      "domains": [
+        "monitoring"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "direct",
+        "label": "Popolazione sportiva"
+      },
+      "practicalRelevance": "high",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-08-24T05:58:36.317Z",
+      "lastSeenAt": "2026-10-26T11:18:17.074Z"
+    },
+    {
       "pmid": "42892897",
       "title": "Effects of Olympic Weightlifting and Weightlifting-Derivative Training on Vertical Jump Performance in Recreationally Trained Individuals: A Systematic Review and Network Meta-Analysis.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42892897/",
@@ -385,7 +456,7 @@
       "agreementWithStandard": "to-review",
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-10-19T10:58:40.427Z",
-      "lastSeenAt": "2026-10-19T10:58:40.427Z"
+      "lastSeenAt": "2026-10-26T11:18:17.074Z"
     },
     {
       "pmid": "42876117",
@@ -645,40 +716,6 @@
       "lastSeenAt": "2026-09-14T10:48:22.811Z"
     },
     {
-      "pmid": "42627171",
-      "title": "Impact of Weekly Workload Distribution on Performance in Male Soccer Players Across Competitive Levels-Scientific Hypothesis or Empirical Evidence: A Systematic Review.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42627171/",
-      "publishedAt": "2026-08-21",
-      "journal": "Journal of strength and conditioning research",
-      "authors": [
-        "Lafrance G",
-        "Dupont G",
-        "Ahmaidi S",
-        "Abaïdia AE"
-      ],
-      "domains": [
-        "monitoring"
-      ],
-      "publicationTypes": [
-        "Journal Article"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "direct",
-        "label": "Popolazione sportiva"
-      },
-      "practicalRelevance": "high",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-08-24T05:58:36.317Z",
-      "lastSeenAt": "2026-08-31T11:41:16.506Z"
-    },
-    {
       "pmid": "42611173",
       "title": "Tapering and Peaking in the Weight Lifting Sports: A Systematic Review of Athletes' Self-Reported Strategies.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42611173/",
@@ -892,6 +929,116 @@
       "lastSeenAt": "2026-10-19T10:58:40.427Z"
     },
     {
+      "pmid": "42926133",
+      "title": "Conceptual Frameworks and Assessment of Readiness to Train in Endurance Exercise: A Systematic Review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42926133/",
+      "publishedAt": "2026-10-24",
+      "journal": "International journal of sports physiology and performance",
+      "authors": [
+        "Micheli L",
+        "Greco F",
+        "Grossi T",
+        "Marini CF",
+        "Brink M",
+        "Lazzer S"
+      ],
+      "domains": [
+        "endurance",
+        "recovery",
+        "wearables"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "contextual",
+        "label": "Applicabilità contestuale"
+      },
+      "practicalRelevance": "medium",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-10-26T11:18:17.074Z",
+      "lastSeenAt": "2026-10-26T11:18:17.074Z"
+    },
+    {
+      "pmid": "42909756",
+      "title": "Cold-Water Immersion for Post-exercise Recovery: An Overlap-Aware Umbrella Review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42909756/",
+      "publishedAt": "2026-10-23",
+      "journal": "Sports medicine - open",
+      "authors": [
+        "Liang W",
+        "Ma X",
+        "Sun G",
+        "Liu C",
+        "Yan X"
+      ],
+      "domains": [
+        "wearables"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "contextual",
+        "label": "Applicabilità contestuale"
+      },
+      "practicalRelevance": "medium",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-10-26T11:18:17.074Z",
+      "lastSeenAt": "2026-10-26T11:18:17.074Z"
+    },
+    {
+      "pmid": "42925088",
+      "title": "Conservative Management of a Displaced Iliopsoas Avulsion in an Adolescent: A Case Report and Systematic Review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42925088/",
+      "publishedAt": "2026-10-23",
+      "journal": "Clinical journal of sport medicine : official journal of the Canadian Academy of Sport Medicine",
+      "authors": [
+        "Rosenkranz T",
+        "Weber M",
+        "Demmer T",
+        "Bartz C",
+        "Müller LP",
+        "Wegmann S"
+      ],
+      "domains": [
+        "return-to-sport"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "contextual",
+        "label": "Applicabilità contestuale"
+      },
+      "practicalRelevance": "medium",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-10-26T11:18:17.074Z",
+      "lastSeenAt": "2026-10-26T11:18:17.074Z"
+    },
+    {
       "pmid": "42891559",
       "title": "Effects of Altitude or Hypoxic Exposure on Endurance Running Performance: A Systematic Review and Meta-analysis.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42891559/",
@@ -925,7 +1072,7 @@
       "agreementWithStandard": "to-review",
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-10-19T10:58:40.427Z",
-      "lastSeenAt": "2026-10-19T10:58:40.427Z"
+      "lastSeenAt": "2026-10-26T11:18:17.074Z"
     },
     {
       "pmid": "41879099",
@@ -2100,149 +2247,6 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-07-31T11:16:53.165Z",
       "lastSeenAt": "2026-07-31T11:31:22.191Z"
-    },
-    {
-      "pmid": "42530633",
-      "title": "Delaying task failure in high-intensity exercise: a Pi-afferent-effort framework for targeted sports nutrition.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42530633/",
-      "publishedAt": "2026-12-31",
-      "journal": "Journal of the International Society of Sports Nutrition",
-      "authors": [
-        "Stout JR",
-        "Housh TJ",
-        "Bergstrom HC"
-      ],
-      "domains": [
-        "recovery"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "review",
-        "tier": "C",
-        "label": "Revisione narrativa / scoping"
-      },
-      "population": {
-        "key": "direct",
-        "label": "Popolazione sportiva"
-      },
-      "practicalRelevance": "medium",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-07-31T11:16:53.165Z",
-      "lastSeenAt": "2026-08-10T10:03:35.915Z"
-    },
-    {
-      "pmid": "42730713",
-      "title": "Could creatine supplementation combined with physical rehabilitation accelerate return to play in athletes with patellar tendinopathy?",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42730713/",
-      "publishedAt": "2026-12-31",
-      "journal": "Journal of the International Society of Sports Nutrition",
-      "authors": [
-        "Sánchez-Gómez Á",
-        "Malaguti M",
-        "Sañudo B",
-        "López-Samanes Á",
-        "San Juan AF",
-        "Domínguez R"
-      ],
-      "domains": [
-        "recovery",
-        "return-to-sport"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "evidenceType": {
-        "key": "controlled",
-        "tier": "C",
-        "label": "Studio controllato"
-      },
-      "population": {
-        "key": "direct",
-        "label": "Popolazione sportiva"
-      },
-      "practicalRelevance": "medium",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-09-14T10:48:22.811Z",
-      "lastSeenAt": "2026-09-21T10:51:50.993Z"
-    },
-    {
-      "pmid": "42678360",
-      "title": "Effects of continuous isomaltulose-containing gummy intake on interstitial glucose and salivary hormones during an 18-hole golf round: a randomized, double-blind controlled pilot study.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42678360/",
-      "publishedAt": "2026-12-30",
-      "journal": "Journal of the International Society of Sports Nutrition",
-      "authors": [
-        "Nagashima Y",
-        "Ehara K",
-        "Ehara Y",
-        "Maruyama Y",
-        "Mitsume A",
-        "Uchikoba Y"
-      ],
-      "domains": [
-        "recovery"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ],
-      "evidenceType": {
-        "key": "controlled",
-        "tier": "C",
-        "label": "Studio controllato"
-      },
-      "population": {
-        "key": "contextual",
-        "label": "Applicabilità contestuale"
-      },
-      "practicalRelevance": "medium",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-09-07T10:30:35.210Z",
-      "lastSeenAt": "2026-09-14T10:48:22.811Z"
-    },
-    {
-      "pmid": "42679097",
-      "title": "Mechanism-based nutritional strategies for performance and recovery in soccer players: a qualitative research synthesis.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42679097/",
-      "publishedAt": "2026-12-30",
-      "journal": "Journal of the International Society of Sports Nutrition",
-      "authors": [
-        "Azizi Ammarati AH",
-        "Shanazari Z",
-        "Rahmati M"
-      ],
-      "domains": [
-        "recovery"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "review",
-        "tier": "C",
-        "label": "Revisione narrativa / scoping"
-      },
-      "population": {
-        "key": "direct",
-        "label": "Popolazione sportiva"
-      },
-      "practicalRelevance": "medium",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-09-07T10:30:35.210Z",
-      "lastSeenAt": "2026-09-14T10:48:22.811Z"
     }
   ],
   "review": {
