@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "generatedAt": "2026-10-26T11:18:17.074Z",
+  "generatedAt": "2026-11-02T13:40:45.980Z",
   "standardVersion": "1.0.0",
   "scan": {
-    "from": "2026-10-13",
-    "to": "2026-10-26",
+    "from": "2026-10-20",
+    "to": "2026-11-02",
     "windowDays": 14
   },
   "source": {
@@ -16,19 +16,19 @@
     {
       "key": "endurance",
       "label": "Endurance",
-      "resultCount": 20,
+      "resultCount": 49,
       "status": "ok"
     },
     {
       "key": "strength",
       "label": "Forza",
-      "resultCount": 13,
+      "resultCount": 21,
       "status": "ok"
     },
     {
       "key": "concurrent",
       "label": "Concurrent / hybrid",
-      "resultCount": 1,
+      "resultCount": 3,
       "status": "ok"
     },
     {
@@ -40,31 +40,31 @@
     {
       "key": "plyometric",
       "label": "Pliometria",
-      "resultCount": 6,
+      "resultCount": 9,
       "status": "ok"
     },
     {
       "key": "recovery",
       "label": "Recupero e sonno",
-      "resultCount": 61,
+      "resultCount": 135,
       "status": "ok"
     },
     {
       "key": "wearables",
       "label": "Wearable e HRV",
-      "resultCount": 28,
+      "resultCount": 52,
       "status": "ok"
     },
     {
       "key": "monitoring",
       "label": "Monitoraggio del carico",
-      "resultCount": 7,
+      "resultCount": 24,
       "status": "ok"
     },
     {
       "key": "return-to-sport",
       "label": "Return to sport",
-      "resultCount": 30,
+      "resultCount": 60,
       "status": "ok"
     }
   ],
@@ -355,6 +355,83 @@
       "lastSeenAt": "2026-10-12T13:19:18.817Z"
     },
     {
+      "pmid": "42768963",
+      "title": "Coaches' verbal encouragement in soccer: A systematic review of its effects on internal training load, physical and time-motion performance, and technical skills.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42768963/",
+      "publishedAt": "2026-11-01",
+      "journal": "Journal of sports sciences",
+      "authors": [
+        "Selmi O",
+        "Marzouki H",
+        "Bouassida A",
+        "Ammar A",
+        "Soylu Y",
+        "Boukhris O"
+      ],
+      "domains": [
+        "monitoring"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Systematic Review",
+        "Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "direct",
+        "label": "Popolazione sportiva"
+      },
+      "practicalRelevance": "high",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-09-28T11:49:06.010Z",
+      "lastSeenAt": "2026-11-02T13:40:45.980Z"
+    },
+    {
+      "pmid": "42961026",
+      "title": "Effects and Moderators of High-Intensity Interval Training (HIIT) on Physiological Adaptations Among Team-Sport Athletes: A Systematic Review and Meta-Analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42961026/",
+      "publishedAt": "2026-11-01",
+      "journal": "Scandinavian journal of medicine & science in sports",
+      "authors": [
+        "Zeng X",
+        "Yin M",
+        "Xu K",
+        "Tao M",
+        "Wang J",
+        "Zhong Y"
+      ],
+      "domains": [
+        "recovery"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review",
+        "Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "direct",
+        "label": "Popolazione sportiva"
+      },
+      "practicalRelevance": "high",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-11-02T13:40:45.980Z",
+      "lastSeenAt": "2026-11-02T13:40:45.980Z"
+    },
+    {
       "pmid": "42910640",
       "title": "Suture Augmentation May Facilitate Earlier Return to Sport Without Improving Return Rates or Clinical Outcomes Following Modified Broström Repair: A Systematic Review and Meta-Analysis.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42910640/",
@@ -581,43 +658,6 @@
       ],
       "domains": [
         "return-to-sport"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "direct",
-        "label": "Popolazione sportiva"
-      },
-      "practicalRelevance": "high",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-09-28T11:49:06.010Z",
-      "lastSeenAt": "2026-09-28T11:49:06.010Z"
-    },
-    {
-      "pmid": "42768963",
-      "title": "Coaches' verbal encouragement in soccer: A systematic review of its effects on internal training load, physical and time-motion performance, and technical skills.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42768963/",
-      "publishedAt": "2026-09-22",
-      "journal": "Journal of sports sciences",
-      "authors": [
-        "Selmi O",
-        "Marzouki H",
-        "Bouassida A",
-        "Ammar A",
-        "Soylu Y",
-        "Boukhris O"
-      ],
-      "domains": [
-        "monitoring"
       ],
       "publicationTypes": [
         "Journal Article",
@@ -929,6 +969,118 @@
       "lastSeenAt": "2026-10-19T10:58:40.427Z"
     },
     {
+      "pmid": "42410073",
+      "title": "Cross-Education Effect on Force Production Capacity After Unilateral Resistance Training in Clinical Populations: A Systematic Review with Meta-analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42410073/",
+      "publishedAt": "2026-11-01",
+      "journal": "Sports medicine (Auckland, N.Z.)",
+      "authors": [
+        "Valdés O",
+        "Chalchat E",
+        "Rehbein C",
+        "Núñez O",
+        "García-Vicencio S",
+        "Martin V"
+      ],
+      "domains": [
+        "strength"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Systematic Review",
+        "Meta-Analysis"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "contextual",
+        "label": "Applicabilità contestuale"
+      },
+      "practicalRelevance": "medium",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-11-02T13:40:45.980Z",
+      "lastSeenAt": "2026-11-02T13:40:45.980Z"
+    },
+    {
+      "pmid": "42693659",
+      "title": "Risk Factors for Exercise-Associated Muscle Cramps: A Systematic Review With Meta-Analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42693659/",
+      "publishedAt": "2026-11-01",
+      "journal": "Muscle & nerve",
+      "authors": [
+        "Costa LDS",
+        "Correa VAF",
+        "de Oliveira VF",
+        "Jahn AJS",
+        "Aliano GB",
+        "Nunes GS"
+      ],
+      "domains": [
+        "monitoring"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Systematic Review",
+        "Meta-Analysis"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "contextual",
+        "label": "Applicabilità contestuale"
+      },
+      "practicalRelevance": "medium",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-09-07T10:30:35.210Z",
+      "lastSeenAt": "2026-11-02T13:40:45.980Z"
+    },
+    {
+      "pmid": "42732566",
+      "title": "The internal and external characteristics of female netball match-play: A systematic review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42732566/",
+      "publishedAt": "2026-11-01",
+      "journal": "Journal of sports sciences",
+      "authors": [
+        "Thomas NA",
+        "Read DB",
+        "Barke AJ",
+        "Dos'Santos T"
+      ],
+      "domains": [
+        "monitoring"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Systematic Review",
+        "Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "contextual",
+        "label": "Applicabilità contestuale"
+      },
+      "practicalRelevance": "medium",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-09-14T10:48:22.811Z",
+      "lastSeenAt": "2026-11-02T13:40:45.980Z"
+    },
+    {
       "pmid": "42926133",
       "title": "Conceptual Frameworks and Assessment of Readiness to Train in Endurance Exercise: A Systematic Review.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42926133/",
@@ -1149,41 +1301,6 @@
       "lastSeenAt": "2026-10-05T12:24:21.898Z"
     },
     {
-      "pmid": "42732566",
-      "title": "The internal and external characteristics of female netball match-play: A systematic review.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42732566/",
-      "publishedAt": "2026-09-13",
-      "journal": "Journal of sports sciences",
-      "authors": [
-        "Thomas NA",
-        "Read DB",
-        "Barke AJ",
-        "Dos'Santos T"
-      ],
-      "domains": [
-        "monitoring"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "contextual",
-        "label": "Applicabilità contestuale"
-      },
-      "practicalRelevance": "medium",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-09-14T10:48:22.811Z",
-      "lastSeenAt": "2026-09-21T10:51:50.993Z"
-    },
-    {
       "pmid": "42726084",
       "title": "Blood flow restriction improves lower limb muscle function in adults with musculoskeletal disorders: A systematic review and meta-analysis.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42726084/",
@@ -1256,42 +1373,6 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-09-07T10:30:35.210Z",
       "lastSeenAt": "2026-09-07T10:30:35.210Z"
-    },
-    {
-      "pmid": "42693659",
-      "title": "Risk Factors for Exercise-Associated Muscle Cramps: A Systematic Review With Meta-Analysis.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42693659/",
-      "publishedAt": "2026-09-03",
-      "journal": "Muscle & nerve",
-      "authors": [
-        "Costa LDS",
-        "Correa VAF",
-        "de Oliveira VF",
-        "Jahn AJS",
-        "Aliano GB",
-        "Nunes GS"
-      ],
-      "domains": [
-        "monitoring"
-      ],
-      "publicationTypes": [
-        "Journal Article"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "contextual",
-        "label": "Applicabilità contestuale"
-      },
-      "practicalRelevance": "medium",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-09-07T10:30:35.210Z",
-      "lastSeenAt": "2026-09-14T10:48:22.811Z"
     },
     {
       "pmid": "41734815",
@@ -1426,7 +1507,9 @@
         "plyometric"
       ],
       "publicationTypes": [
-        "Journal Article"
+        "Journal Article",
+        "Systematic Review",
+        "Meta-Analysis"
       ],
       "evidenceType": {
         "key": "synthesis",
@@ -1442,7 +1525,7 @@
       "agreementWithStandard": "to-review",
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-08-10T10:03:35.915Z",
-      "lastSeenAt": "2026-08-17T08:02:49.767Z"
+      "lastSeenAt": "2026-11-02T13:40:45.980Z"
     },
     {
       "pmid": "42228847",
@@ -1551,6 +1634,45 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-07-31T11:16:53.165Z",
       "lastSeenAt": "2026-07-31T11:31:22.191Z"
+    },
+    {
+      "pmid": "42966899",
+      "title": "Prevalence of Sleep Disorders in Patients With Knee, Hip, and Hand Osteoarthritis: A Systematic Review With Meta-Analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42966899/",
+      "publishedAt": "2026-11-01",
+      "journal": "The Journal of orthopaedic and sports physical therapy",
+      "authors": [
+        "Krag-Andersen KK",
+        "van Zaane JH",
+        "Gaban GLNA",
+        "Bricca A",
+        "Ferreira P",
+        "Hall M"
+      ],
+      "domains": [
+        "recovery"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Systematic Review",
+        "Meta-Analysis",
+        "Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "limited",
+        "label": "Applicabilità limitata"
+      },
+      "practicalRelevance": "low",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-11-02T13:40:45.980Z",
+      "lastSeenAt": "2026-11-02T13:40:45.980Z"
     },
     {
       "pmid": "42890719",
@@ -2135,118 +2257,6 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-08-03T14:04:23.022Z",
       "lastSeenAt": "2026-08-03T14:04:23.022Z"
-    },
-    {
-      "pmid": "42531926",
-      "title": "Predicting ACL injury risk in athletes: A systematic review of machine learning-based models.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42531926/",
-      "publishedAt": "2026-07-30",
-      "journal": "The Knee",
-      "authors": [
-        "Bingöl Ş",
-        "Hosseini E",
-        "Şahin BÖ",
-        "Tan Ç",
-        "Turan E",
-        "Baikoğlu SB"
-      ],
-      "domains": [
-        "wearables"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "limited",
-        "label": "Applicabilità limitata"
-      },
-      "practicalRelevance": "low",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-07-31T11:16:53.165Z",
-      "lastSeenAt": "2026-07-31T11:31:22.191Z"
-    },
-    {
-      "pmid": "42527622",
-      "title": "Shoulder injuries in rugby union: a systematic review and meta-analysis.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42527622/",
-      "publishedAt": "2026-07-29",
-      "journal": "Archives of orthopaedic and trauma surgery",
-      "authors": [
-        "Doyle J",
-        "Bellamy M",
-        "Fowler K",
-        "Keiller H",
-        "Gunasekera R",
-        "Funk L"
-      ],
-      "domains": [
-        "return-to-sport"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Systematic Review",
-        "Meta-Analysis",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "limited",
-        "label": "Applicabilità limitata"
-      },
-      "practicalRelevance": "low",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-07-31T11:16:53.165Z",
-      "lastSeenAt": "2026-07-31T11:31:22.191Z"
-    },
-    {
-      "pmid": "42528213",
-      "title": "Mid- to Long-term Outcomes of Coracoclavicular Ligament Reconstruction for Acromioclavicular Joint Dislocations: A Systematic Review of Studies With Minimum 5-Year Follow-up.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42528213/",
-      "publishedAt": "2026-07-29",
-      "journal": "The American journal of sports medicine",
-      "authors": [
-        "Boufadel P",
-        "Jayne C",
-        "Hoffman I",
-        "Tao BS",
-        "Latif A",
-        "Bartlett LE"
-      ],
-      "domains": [
-        "return-to-sport"
-      ],
-      "publicationTypes": [
-        "Journal Article"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "limited",
-        "label": "Applicabilità limitata"
-      },
-      "practicalRelevance": "low",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-07-31T11:16:53.165Z",
-      "lastSeenAt": "2026-07-31T11:31:22.191Z"
     }
   ],
   "review": {
