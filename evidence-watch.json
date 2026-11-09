@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "generatedAt": "2026-11-02T13:40:45.980Z",
+  "generatedAt": "2026-11-09T14:05:32.172Z",
   "standardVersion": "1.0.0",
   "scan": {
-    "from": "2026-10-20",
-    "to": "2026-11-02",
+    "from": "2026-10-27",
+    "to": "2026-11-09",
     "windowDays": 14
   },
   "source": {
@@ -16,19 +16,19 @@
     {
       "key": "endurance",
       "label": "Endurance",
-      "resultCount": 49,
+      "resultCount": 63,
       "status": "ok"
     },
     {
       "key": "strength",
       "label": "Forza",
-      "resultCount": 21,
+      "resultCount": 27,
       "status": "ok"
     },
     {
       "key": "concurrent",
       "label": "Concurrent / hybrid",
-      "resultCount": 3,
+      "resultCount": 4,
       "status": "ok"
     },
     {
@@ -40,31 +40,31 @@
     {
       "key": "plyometric",
       "label": "Pliometria",
-      "resultCount": 9,
+      "resultCount": 12,
       "status": "ok"
     },
     {
       "key": "recovery",
       "label": "Recupero e sonno",
-      "resultCount": 135,
+      "resultCount": 150,
       "status": "ok"
     },
     {
       "key": "wearables",
       "label": "Wearable e HRV",
-      "resultCount": 52,
+      "resultCount": 45,
       "status": "ok"
     },
     {
       "key": "monitoring",
       "label": "Monitoraggio del carico",
-      "resultCount": 24,
+      "resultCount": 22,
       "status": "ok"
     },
     {
       "key": "return-to-sport",
       "label": "Return to sport",
-      "resultCount": 60,
+      "resultCount": 86,
       "status": "ok"
     }
   ],
@@ -105,6 +105,43 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-10-19T10:58:40.427Z",
       "lastSeenAt": "2026-10-26T11:18:17.074Z"
+    },
+    {
+      "pmid": "42992615",
+      "title": "Post-Treatment Follow-up, Rehabilitation, and Return to Sport: Proceedings of the International Consensus Meetings on Cartilage Repair of the Ankle.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42992615/",
+      "publishedAt": "2026-11-06",
+      "journal": "Foot & ankle specialist",
+      "authors": [
+        "Rubin J",
+        "Tham A",
+        "Butler JJ",
+        "Gauthier P",
+        "Hedbany D",
+        "Kennedy JG"
+      ],
+      "domains": [
+        "recovery",
+        "return-to-sport"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "evidenceType": {
+        "key": "anchor",
+        "tier": "A",
+        "label": "Consensus / linea guida"
+      },
+      "population": {
+        "key": "direct",
+        "label": "Popolazione sportiva"
+      },
+      "practicalRelevance": "high",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-11-09T14:05:32.172Z",
+      "lastSeenAt": "2026-11-09T14:05:32.172Z"
     },
     {
       "pmid": "42828435",
@@ -355,6 +392,77 @@
       "lastSeenAt": "2026-10-12T13:19:18.817Z"
     },
     {
+      "pmid": "42994214",
+      "title": "Outcomes of open and endoscopic excision of a symptomatic os trigonum in athletes: a systematic review with exploratory analysis of prognostic factors.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42994214/",
+      "publishedAt": "2026-11-06",
+      "journal": "Foot (Edinburgh, Scotland)",
+      "authors": [
+        "Dey K",
+        "Sangha BKS",
+        "Norrish A"
+      ],
+      "domains": [
+        "return-to-sport"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "direct",
+        "label": "Popolazione sportiva"
+      },
+      "practicalRelevance": "high",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-11-09T14:05:32.172Z",
+      "lastSeenAt": "2026-11-09T14:05:32.172Z"
+    },
+    {
+      "pmid": "42970020",
+      "title": "Female Team-Sport Athletes' Physical Fitness and Jump Performance Kinematics After Plyometric Jump Training: A Systematic Review and Meta-analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42970020/",
+      "publishedAt": "2026-11-02",
+      "journal": "Sports medicine - open",
+      "authors": [
+        "Lane A",
+        "Ramirez-Campillo R",
+        "Connors P",
+        "Bolger R",
+        "Moody JA",
+        "Thapa RK"
+      ],
+      "domains": [
+        "plyometric"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "direct",
+        "label": "Popolazione sportiva"
+      },
+      "practicalRelevance": "high",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-11-09T14:05:32.172Z",
+      "lastSeenAt": "2026-11-09T14:05:32.172Z"
+    },
+    {
       "pmid": "42768963",
       "title": "Coaches' verbal encouragement in soccer: A systematic review of its effects on internal training load, physical and time-motion performance, and technical skills.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42768963/",
@@ -390,7 +498,7 @@
       "agreementWithStandard": "to-review",
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-09-28T11:49:06.010Z",
-      "lastSeenAt": "2026-11-02T13:40:45.980Z"
+      "lastSeenAt": "2026-11-09T14:05:32.172Z"
     },
     {
       "pmid": "42961026",
@@ -1525,7 +1633,7 @@
       "agreementWithStandard": "to-review",
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-08-10T10:03:35.915Z",
-      "lastSeenAt": "2026-11-02T13:40:45.980Z"
+      "lastSeenAt": "2026-11-09T14:05:32.172Z"
     },
     {
       "pmid": "42228847",
@@ -1634,6 +1742,38 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-07-31T11:16:53.165Z",
       "lastSeenAt": "2026-07-31T11:31:22.191Z"
+    },
+    {
+      "pmid": "42981589",
+      "title": "Intermittent Normobaric Hypoxia and Cardiac Autonomic Modulation in Adults: A Systematic Review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42981589/",
+      "publishedAt": "2026-11-04",
+      "journal": "Applied physiology, nutrition, and metabolism = Physiologie appliquee, nutrition et metabolisme",
+      "authors": [
+        "Navarro-Gómez P",
+        "Vidal-Conti J"
+      ],
+      "domains": [
+        "wearables"
+      ],
+      "publicationTypes": [
+        "Journal Article"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "limited",
+        "label": "Applicabilità limitata"
+      },
+      "practicalRelevance": "low",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-11-09T14:05:32.172Z",
+      "lastSeenAt": "2026-11-09T14:05:32.172Z"
     },
     {
       "pmid": "42966899",
@@ -2114,149 +2254,6 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-08-24T05:58:36.317Z",
       "lastSeenAt": "2026-08-24T05:58:36.317Z"
-    },
-    {
-      "pmid": "42592956",
-      "title": "Medial Quadriceps Tendon-Femoral Ligament Reconstruction Offers Favorable Clinical Outcomes and Low Complication Rates for Recurrent Patellar Instability: A Systematic Review.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42592956/",
-      "publishedAt": "2026-08-13",
-      "journal": "Arthroscopy : the journal of arthroscopic & related surgery : official publication of the Arthroscopy Association of North America and the International Arthroscopy Association",
-      "authors": [
-        "Kahlon H",
-        "Blackman B",
-        "Vivekanantha P",
-        "Ranadive A",
-        "Bouchard MD",
-        "de Sa D"
-      ],
-      "domains": [
-        "return-to-sport"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "limited",
-        "label": "Applicabilità limitata"
-      },
-      "practicalRelevance": "low",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-08-17T08:02:49.767Z",
-      "lastSeenAt": "2026-08-17T08:02:49.767Z"
-    },
-    {
-      "pmid": "42580253",
-      "title": "Nonlinear dose-response effects of exercise modalities on handgrip strength and functional mobility in middle-aged and older adults with sarcopenia: A Bayesian network meta-analysis.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42580253/",
-      "publishedAt": "2026-08-10",
-      "journal": "Geriatric nursing (New York, N.Y.)",
-      "authors": [
-        "Bai P",
-        "Xiong Q",
-        "Wu T"
-      ],
-      "domains": [
-        "strength"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "limited",
-        "label": "Applicabilità limitata"
-      },
-      "practicalRelevance": "low",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-08-17T08:02:49.767Z",
-      "lastSeenAt": "2026-08-17T08:02:49.767Z"
-    },
-    {
-      "pmid": "42570051",
-      "title": "The Criteria and Design for Return-to-Play Following Muscle Injury in Football are Not Standardized: A Systematic Review Including Descriptive Analysis of RTP Criteria Distribution and Study Design Heterogeneity.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42570051/",
-      "publishedAt": "2026-08-08",
-      "journal": "Sports medicine (Auckland, N.Z.)",
-      "authors": [
-        "Vicente Ó",
-        "Velasco-Roldan O",
-        "Pedret C"
-      ],
-      "domains": [
-        "recovery",
-        "return-to-sport"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "limited",
-        "label": "Applicabilità limitata"
-      },
-      "practicalRelevance": "low",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-08-10T10:03:35.915Z",
-      "lastSeenAt": "2026-08-10T10:03:35.915Z"
-    },
-    {
-      "pmid": "42543457",
-      "title": "Diabetes Mellitus and Long-Distance Running: A Systematic Review.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42543457/",
-      "publishedAt": "2026-08-03",
-      "journal": "Sports medicine - open",
-      "authors": [
-        "Braschler L",
-        "Thuany M",
-        "Züger T",
-        "Nikolaidis PT",
-        "Weiss K",
-        "Rosemann T"
-      ],
-      "domains": [
-        "endurance"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "limited",
-        "label": "Applicabilità limitata"
-      },
-      "practicalRelevance": "low",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-08-03T14:04:23.022Z",
-      "lastSeenAt": "2026-08-03T14:04:23.022Z"
     }
   ],
   "review": {
