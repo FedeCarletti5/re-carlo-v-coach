@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "generatedAt": "2026-11-09T14:05:32.172Z",
+  "generatedAt": "2026-11-16T13:50:48.993Z",
   "standardVersion": "1.0.0",
   "scan": {
-    "from": "2026-10-27",
-    "to": "2026-11-09",
+    "from": "2026-11-03",
+    "to": "2026-11-16",
     "windowDays": 14
   },
   "source": {
@@ -16,19 +16,19 @@
     {
       "key": "endurance",
       "label": "Endurance",
-      "resultCount": 63,
+      "resultCount": 19,
       "status": "ok"
     },
     {
       "key": "strength",
       "label": "Forza",
-      "resultCount": 27,
+      "resultCount": 17,
       "status": "ok"
     },
     {
       "key": "concurrent",
       "label": "Concurrent / hybrid",
-      "resultCount": 4,
+      "resultCount": 2,
       "status": "ok"
     },
     {
@@ -40,31 +40,31 @@
     {
       "key": "plyometric",
       "label": "Pliometria",
-      "resultCount": 12,
+      "resultCount": 5,
       "status": "ok"
     },
     {
       "key": "recovery",
       "label": "Recupero e sonno",
-      "resultCount": 150,
+      "resultCount": 59,
       "status": "ok"
     },
     {
       "key": "wearables",
       "label": "Wearable e HRV",
-      "resultCount": 45,
+      "resultCount": 22,
       "status": "ok"
     },
     {
       "key": "monitoring",
       "label": "Monitoraggio del carico",
-      "resultCount": 22,
+      "resultCount": 9,
       "status": "ok"
     },
     {
       "key": "return-to-sport",
       "label": "Return to sport",
-      "resultCount": 86,
+      "resultCount": 42,
       "status": "ok"
     }
   ],
@@ -175,6 +175,43 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-10-05T12:24:21.898Z",
       "lastSeenAt": "2026-10-05T12:24:21.898Z"
+    },
+    {
+      "pmid": "43024818",
+      "title": "Task Force 9: Clinical Considerations for the Care of Athletes with Cardiac Channelopathies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43024818/",
+      "publishedAt": "2026-12-01",
+      "journal": "Medicine and science in sports and exercise",
+      "authors": [
+        "Gray B",
+        "Chung EH",
+        "Etheridge S",
+        "Link MS",
+        "Kim JH",
+        "Baggish AL"
+      ],
+      "domains": [
+        "return-to-sport"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Practice Guideline"
+      ],
+      "evidenceType": {
+        "key": "anchor",
+        "tier": "A",
+        "label": "Consensus / linea guida"
+      },
+      "population": {
+        "key": "limited",
+        "label": "Applicabilità limitata"
+      },
+      "practicalRelevance": "low",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-11-16T13:50:48.993Z",
+      "lastSeenAt": "2026-11-16T13:50:48.993Z"
     },
     {
       "pmid": "42875874",
@@ -390,6 +427,80 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-10-05T12:24:21.898Z",
       "lastSeenAt": "2026-10-12T13:19:18.817Z"
+    },
+    {
+      "pmid": "43024179",
+      "title": "Playing Surface Characteristics and Their Effects on Football Performance Across Multiple Surface Types: A Systematic Review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43024179/",
+      "publishedAt": "2026-11-13",
+      "journal": "Sports medicine - open",
+      "authors": [
+        "Felipe JL",
+        "Hernandez-Martin A",
+        "Colino E",
+        "Mills K",
+        "Benetti M",
+        "Billingham J"
+      ],
+      "domains": [
+        "monitoring"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "direct",
+        "label": "Popolazione sportiva"
+      },
+      "practicalRelevance": "high",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-11-16T13:50:48.993Z",
+      "lastSeenAt": "2026-11-16T13:50:48.993Z"
+    },
+    {
+      "pmid": "43018928",
+      "title": "Maximal Aerobic Capacity and Aging in Female Masters Athletes: A Systematic Review and Meta-analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43018928/",
+      "publishedAt": "2026-11-12",
+      "journal": "Sports medicine (Auckland, N.Z.)",
+      "authors": [
+        "Kipp S",
+        "Larson KF",
+        "Collantes Hoyos DB",
+        "Michael AM",
+        "Brazile TL",
+        "Levine BD"
+      ],
+      "domains": [
+        "endurance"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "direct",
+        "label": "Popolazione sportiva"
+      },
+      "practicalRelevance": "high",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-11-16T13:50:48.993Z",
+      "lastSeenAt": "2026-11-16T13:50:48.993Z"
     },
     {
       "pmid": "42994214",
@@ -1077,6 +1188,43 @@
       "lastSeenAt": "2026-10-19T10:58:40.427Z"
     },
     {
+      "pmid": "43034229",
+      "title": "Clinical and Radiographic Outcomes of Arthroscopic Free Bone Grafts Versus Latarjet Procedures for Anterior Shoulder Instability with Glenoid Bone Loss: A Systematic Review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43034229/",
+      "publishedAt": "2026-11-14",
+      "journal": "Current reviews in musculoskeletal medicine",
+      "authors": [
+        "Nguyen CD",
+        "Farquharson R",
+        "Wang E",
+        "Romero MR",
+        "Marks LA",
+        "Marigi EM"
+      ],
+      "domains": [
+        "return-to-sport"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "contextual",
+        "label": "Applicabilità contestuale"
+      },
+      "practicalRelevance": "medium",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-11-16T13:50:48.993Z",
+      "lastSeenAt": "2026-11-16T13:50:48.993Z"
+    },
+    {
       "pmid": "42410073",
       "title": "Cross-Education Effect on Force Production Capacity After Unilateral Resistance Training in Clinical Populations: A Systematic Review with Meta-analysis.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42410073/",
@@ -1744,6 +1892,81 @@
       "lastSeenAt": "2026-07-31T11:31:22.191Z"
     },
     {
+      "pmid": "43033720",
+      "title": "Quadriceps and hamstring tendon autografts show similar clinical outcomes but distinct strength-recovery profiles after primary anterior cruciate ligament reconstruction: A meta-analysis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43033720/",
+      "publishedAt": "2026-11-14",
+      "journal": "Journal of ISAKOS : joint disorders & orthopaedic sports medicine",
+      "authors": [
+        "Mosleh M",
+        "Eldesouky A",
+        "Ollivier M",
+        "Nounou MV",
+        "Qatza A",
+        "Behloul A"
+      ],
+      "domains": [
+        "recovery",
+        "return-to-sport"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "limited",
+        "label": "Applicabilità limitata"
+      },
+      "practicalRelevance": "low",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-11-16T13:50:48.993Z",
+      "lastSeenAt": "2026-11-16T13:50:48.993Z"
+    },
+    {
+      "pmid": "43034674",
+      "title": "Arthroscopic Stabilization Reduces Recurrence but May Delay Return to Sport After First-Time Traumatic Anterior Shoulder Dislocation in Elite Male Athletes: A Systematic Review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43034674/",
+      "publishedAt": "2026-11-14",
+      "journal": "Arthroscopy, sports medicine, and rehabilitation",
+      "authors": [
+        "Fraser C",
+        "Sedlacek D",
+        "Letts J",
+        "Brown D",
+        "Talbot W",
+        "Ralph-Wilkie J"
+      ],
+      "domains": [
+        "return-to-sport"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "limited",
+        "label": "Applicabilità limitata"
+      },
+      "practicalRelevance": "low",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-11-16T13:50:48.993Z",
+      "lastSeenAt": "2026-11-16T13:50:48.993Z"
+    },
+    {
       "pmid": "42981589",
       "title": "Intermittent Normobaric Hypoxia and Cardiac Autonomic Modulation in Adults: A Systematic Review.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42981589/",
@@ -2033,227 +2256,6 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-09-21T10:51:50.993Z",
       "lastSeenAt": "2026-09-21T10:51:50.993Z"
-    },
-    {
-      "pmid": "42757382",
-      "title": "Lateral extra-articular procedures in primary anterior cruciate ligament reconstruction reduce graft failure rates in elite and competitive athletes: A systematic review.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42757382/",
-      "publishedAt": "2026-09-17",
-      "journal": "Journal of experimental orthopaedics",
-      "authors": [
-        "Kratochwil L",
-        "Kienberger S",
-        "Deichsel A",
-        "Gotterbarm T",
-        "Winkler PW"
-      ],
-      "domains": [
-        "return-to-sport"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "limited",
-        "label": "Applicabilità limitata"
-      },
-      "practicalRelevance": "low",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-09-21T10:51:50.993Z",
-      "lastSeenAt": "2026-09-21T10:51:50.993Z"
-    },
-    {
-      "pmid": "42732536",
-      "title": "Shoulder Surgery Studies in Contact and Collision Athletes Prioritize Patient-Reported Outcomes but Infrequently Report Athlete-Specific Measures: A Systematic Review.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42732536/",
-      "publishedAt": "2026-09-13",
-      "journal": "Arthroscopy : the journal of arthroscopic & related surgery : official publication of the Arthroscopy Association of North America and the International Arthroscopy Association",
-      "authors": [
-        "Long WE",
-        "Eskandari S",
-        "Sharma AK",
-        "Hurley ET",
-        "Parada SA"
-      ],
-      "domains": [
-        "return-to-sport"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "limited",
-        "label": "Applicabilità limitata"
-      },
-      "practicalRelevance": "low",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-09-14T10:48:22.811Z",
-      "lastSeenAt": "2026-09-14T10:48:22.811Z"
-    },
-    {
-      "pmid": "42684321",
-      "title": "Comparative return to play and performance outcomes following lower extremity injuries in European professional soccer: a systematic review and meta-analysis.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42684321/",
-      "publishedAt": "2026-09-05",
-      "journal": "The Physician and sportsmedicine",
-      "authors": [
-        "Mbengue A",
-        "Galardi W",
-        "McIntyre C",
-        "Woodhams W",
-        "Wesley T",
-        "Dean D"
-      ],
-      "domains": [
-        "recovery",
-        "return-to-sport"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "limited",
-        "label": "Applicabilità limitata"
-      },
-      "practicalRelevance": "low",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-09-07T10:30:35.210Z",
-      "lastSeenAt": "2026-09-07T10:30:35.210Z"
-    },
-    {
-      "pmid": "42633011",
-      "title": "Anterior Cruciate Ligament Reconstruction With or Without Lateral Extra-articular Tenodesis: A Systematic Review and Meta-analysis of Comparative Outcomes From Randomized Controlled Trials.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42633011/",
-      "publishedAt": "2026-08-21",
-      "journal": "Orthopaedic journal of sports medicine",
-      "authors": [
-        "Alkhunein F",
-        "Alrasheed K",
-        "Alrasheed R",
-        "Alorayyidh M",
-        "Cahusac P",
-        "Alhamzah H"
-      ],
-      "domains": [
-        "return-to-sport"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "limited",
-        "label": "Applicabilità limitata"
-      },
-      "practicalRelevance": "low",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-08-24T05:58:36.317Z",
-      "lastSeenAt": "2026-08-24T05:58:36.317Z"
-    },
-    {
-      "pmid": "42666376",
-      "title": "Knee proprioception following anterior cruciate ligament repair and reconstruction: A systematic review and network meta-analysis.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42666376/",
-      "publishedAt": "2026-08-19",
-      "journal": "Asia-Pacific journal of sports medicine, arthroscopy, rehabilitation and technology",
-      "authors": [
-        "Cheng J",
-        "Xia T",
-        "Wu Y",
-        "Chen Y",
-        "Yu L",
-        "Wang TYF"
-      ],
-      "domains": [
-        "recovery"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "limited",
-        "label": "Applicabilità limitata"
-      },
-      "practicalRelevance": "low",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-08-31T11:41:16.506Z",
-      "lastSeenAt": "2026-08-31T11:41:16.506Z"
-    },
-    {
-      "pmid": "42611401",
-      "title": "Inciting Events of Lower-Limb Muscle Injury: A Systematic Review and Meta-analysis of Video-Based Studies.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42611401/",
-      "publishedAt": "2026-08-18",
-      "journal": "Sports medicine - open",
-      "authors": [
-        "Miralles-Iborra A",
-        "Rondón-Espinosa H",
-        "Vera-Garcia FJ",
-        "Courel-Ibáñez J",
-        "Manchón-Davó M",
-        "Del Coso J"
-      ],
-      "domains": [
-        "endurance"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Systematic Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "limited",
-        "label": "Applicabilità limitata"
-      },
-      "practicalRelevance": "low",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-08-24T05:58:36.317Z",
-      "lastSeenAt": "2026-08-24T05:58:36.317Z"
     }
   ],
   "review": {
