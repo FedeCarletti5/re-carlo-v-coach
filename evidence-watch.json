@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "status": "ok",
-  "generatedAt": "2026-11-16T13:50:48.993Z",
+  "generatedAt": "2026-11-23T16:13:53.214Z",
   "standardVersion": "1.0.0",
   "scan": {
-    "from": "2026-11-03",
-    "to": "2026-11-16",
+    "from": "2026-11-10",
+    "to": "2026-11-23",
     "windowDays": 14
   },
   "source": {
@@ -16,19 +16,19 @@
     {
       "key": "endurance",
       "label": "Endurance",
-      "resultCount": 19,
+      "resultCount": 18,
       "status": "ok"
     },
     {
       "key": "strength",
       "label": "Forza",
-      "resultCount": 17,
+      "resultCount": 14,
       "status": "ok"
     },
     {
       "key": "concurrent",
       "label": "Concurrent / hybrid",
-      "resultCount": 2,
+      "resultCount": 1,
       "status": "ok"
     },
     {
@@ -40,31 +40,31 @@
     {
       "key": "plyometric",
       "label": "Pliometria",
-      "resultCount": 5,
+      "resultCount": 3,
       "status": "ok"
     },
     {
       "key": "recovery",
       "label": "Recupero e sonno",
-      "resultCount": 59,
+      "resultCount": 57,
       "status": "ok"
     },
     {
       "key": "wearables",
       "label": "Wearable e HRV",
-      "resultCount": 22,
+      "resultCount": 21,
       "status": "ok"
     },
     {
       "key": "monitoring",
       "label": "Monitoraggio del carico",
-      "resultCount": 9,
+      "resultCount": 10,
       "status": "ok"
     },
     {
       "key": "return-to-sport",
       "label": "Return to sport",
-      "resultCount": 42,
+      "resultCount": 30,
       "status": "ok"
     }
   ],
@@ -211,7 +211,7 @@
       "agreementWithStandard": "to-review",
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-11-16T13:50:48.993Z",
-      "lastSeenAt": "2026-11-16T13:50:48.993Z"
+      "lastSeenAt": "2026-11-23T16:13:53.214Z"
     },
     {
       "pmid": "42875874",
@@ -1186,6 +1186,42 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-10-19T10:58:40.427Z",
       "lastSeenAt": "2026-10-19T10:58:40.427Z"
+    },
+    {
+      "pmid": "43069651",
+      "title": "Effects of Intermittent Hypoxia in Sprint Interval Training on Performance and Physiological Responses: A Systematic Review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/43069651/",
+      "publishedAt": "2026-11-22",
+      "journal": "High altitude medicine & biology",
+      "authors": [
+        "Ribeiro FA",
+        "Putti GM",
+        "Andreossi JC",
+        "de Carvalho CD",
+        "Papoti M"
+      ],
+      "domains": [
+        "recovery"
+      ],
+      "publicationTypes": [
+        "Journal Article",
+        "Review"
+      ],
+      "evidenceType": {
+        "key": "synthesis",
+        "tier": "B",
+        "label": "Revisione sistematica / meta-analisi"
+      },
+      "population": {
+        "key": "contextual",
+        "label": "Applicabilità contestuale"
+      },
+      "practicalRelevance": "medium",
+      "applicability": "to-review",
+      "agreementWithStandard": "to-review",
+      "reviewStatus": "candidate",
+      "firstSeenAt": "2026-11-23T16:13:53.214Z",
+      "lastSeenAt": "2026-11-23T16:13:53.214Z"
     },
     {
       "pmid": "43034229",
@@ -2220,42 +2256,6 @@
       "reviewStatus": "candidate",
       "firstSeenAt": "2026-10-05T12:24:21.898Z",
       "lastSeenAt": "2026-10-05T12:24:21.898Z"
-    },
-    {
-      "pmid": "42763874",
-      "title": "Definitions of Return to Play After Shoulder Surgery in Competitive Athletes Are Nonspecific and Unstandardized: A Systematic Review.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/42763874/",
-      "publishedAt": "2026-09-20",
-      "journal": "Arthroscopy : the journal of arthroscopic & related surgery : official publication of the Arthroscopy Association of North America and the International Arthroscopy Association",
-      "authors": [
-        "Long WE",
-        "Shah D",
-        "Eskandari S",
-        "Hurley ET",
-        "Parada SA"
-      ],
-      "domains": [
-        "return-to-sport"
-      ],
-      "publicationTypes": [
-        "Journal Article",
-        "Review"
-      ],
-      "evidenceType": {
-        "key": "synthesis",
-        "tier": "B",
-        "label": "Revisione sistematica / meta-analisi"
-      },
-      "population": {
-        "key": "limited",
-        "label": "Applicabilità limitata"
-      },
-      "practicalRelevance": "low",
-      "applicability": "to-review",
-      "agreementWithStandard": "to-review",
-      "reviewStatus": "candidate",
-      "firstSeenAt": "2026-09-21T10:51:50.993Z",
-      "lastSeenAt": "2026-09-21T10:51:50.993Z"
     }
   ],
   "review": {
